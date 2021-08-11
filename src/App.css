@@ -1,6 +1,24 @@
+@font-face {
+  font-family: 'ExocetHeavy';
+  src: url('./assets/fonts/ExocetHeavy.woff2') format('woff2'),
+       url('./assets/fonts/ExocetHeavy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'ExocetLight';
+  src: url('./assets/fonts/ExocetLight.woff2') format('woff2'),
+       url('./assets/fonts/ExocetLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-family: 'ExocetLight', Arial, Helvetica, sans-serif;
+  font-size: 13px;
 }
 
 .App {
@@ -34,14 +52,20 @@ body {
   height: 70px;
   padding: 4px;
   border: 1px solid #ccc;
+  user-select: none;
 }
 
 .Rune:hover {
   background-color: #ebebeb;
+  cursor: pointer;
 }
 
 .Rune img {
   max-width: 100%;
+}
+
+.Rune.Selected {
+  background-color: #d6ffc5;
 }
 
 .RuneWords {

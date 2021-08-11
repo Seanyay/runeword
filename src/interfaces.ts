@@ -1,6 +1,9 @@
+import { Dispatch, SetStateAction } from "react";
 import { ArmorTypes, Slots, WeaponTypes } from "./enums/ItemTypes";
 import { Runes } from "./enums/Runes";
 import { RuneWords } from "./enums/RuneWords";
+
+export type StateDispatch<T> = Dispatch<SetStateAction<T>>;
 
 export interface IStats {
   slots: Slots | Slots[];
