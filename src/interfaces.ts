@@ -11,7 +11,8 @@ export interface IRune {
   id: Runes;
   name: string;
   level?: number;
-  stats: IStats[]
+  stats: IStats[];
+  image?: string;
 }
 
 export interface IRuneWord {

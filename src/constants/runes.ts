@@ -1,12 +1,48 @@
 import { Slots } from "../enums/ItemTypes";
 import { Runes } from "../enums/Runes";
 import { IRune } from "../interfaces";
+// Rune image assets
+import El from '../assets/runes/el.png';
+import Eld from '../assets/runes/eld.png';
+import Tir from '../assets/runes/tir.png';
+import Nef from '../assets/runes/nef.png';
+import Eth from '../assets/runes/eth.png';
+import Ith from '../assets/runes/ith.png';
+import Tal from '../assets/runes/tal.png';
+import Ral from '../assets/runes/ral.png';
+import Ort from '../assets/runes/ort.png';
+import Thul from '../assets/runes/thul.png';
+import Amn from '../assets/runes/amn.png';
+import Sol from '../assets/runes/sol.png';
+import Shael from '../assets/runes/shael.png';
+import Dol from '../assets/runes/dol.png';
+import Hel from '../assets/runes/hel.png';
+import Io from '../assets/runes/io.png';
+import Lum from '../assets/runes/lum.png';
+import Ko from '../assets/runes/ko.png';
+import Fal from '../assets/runes/fal.png';
+import Lem from '../assets/runes/lem.png';
+import Pul from '../assets/runes/pul.png';
+import Um from '../assets/runes/um.png';
+import Mal from '../assets/runes/mal.png';
+import Ist from '../assets/runes/ist.png';
+import Gul from '../assets/runes/gul.png';
+import Vex from '../assets/runes/vex.png';
+import Ohm from '../assets/runes/ohm.png';
+import Lo from '../assets/runes/lo.png';
+import Sur from '../assets/runes/sur.png';
+import Ber from '../assets/runes/ber.png';
+import Jah from '../assets/runes/jah.png';
+import Cham from '../assets/runes/cham.png';
+import Zod from '../assets/runes/zod.png';
+
 const { WEAPON, ARMOR, HELM, SHIELD } = Slots;
 
 export const runesById: Map<Runes, IRune> = new Map([
   [Runes.EL, {
     id: Runes.EL,
     name: "El",
+    image: El,
     level: 11,
     stats: [
       {
@@ -28,6 +64,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.ELD, {
     id: Runes.ELD,
     name: "Eld",
+    image: Eld,
     level: 11,
     stats: [
       {
@@ -54,6 +91,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.TIR, {
     id: Runes.TIR,
     name: "Tir",
+    image: Tir,
     level: 13,
     stats: [
       {
@@ -67,6 +105,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.NEF, {
     id: Runes.NEF,
     name: "Nef",
+    image: Nef,
     level: 13,
     stats: [
       {
@@ -86,6 +125,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.ETH, {
     id: Runes.ETH,
     name: "Eth",
+    image: Eth,
     level: 15,
     stats: [
       {
@@ -105,6 +145,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.ITH, {
     id: Runes.ITH,
     name: "Ith",
+    image: Ith,
     level: 15,
     stats: [
       {
@@ -124,6 +165,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.TAL, {
     id: Runes.TAL,
     name: "Tal",
+    image: Tal,
     level: 17,
     stats: [
       {
@@ -149,6 +191,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.RAL, {
     id: Runes.RAL,
     name: "Ral",
+    image: Ral,
     level: 19,
     stats: [
       {
@@ -174,6 +217,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.ORT, {
     id: Runes.ORT,
     name: "Ort",
+    image: Ort,
     level: 21,
     stats: [
       {
@@ -199,6 +243,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.THUL, {
     id: Runes.THUL,
     name: "Thul",
+    image: Thul,
     level: 23,
     stats: [
       {
@@ -224,6 +269,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.AMN, {
     id: Runes.AMN,
     name: "Amn",
+    image: Amn,
     level: 25,
     stats: [
       {
@@ -243,6 +289,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.SOL, {
     id: Runes.SOL,
     name: "Sol",
+    image: Sol,
     level: 27,
     stats: [
       {
@@ -262,6 +309,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.SHAEL, {
     id: Runes.SHAEL,
     name: "Shael",
+    image: Shael,
     level: 29,
     stats: [
       {
@@ -287,6 +335,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.DOL, {
     id: Runes.DOL,
     name: "Dol",
+    image: Dol,
     level: 31,
     stats: [
       {
@@ -306,6 +355,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.HEL, {
     id: Runes.HEL,
     name: "Hel",
+    image: Hel,
     level: undefined,
     stats: [
       {
@@ -325,6 +375,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.IO, {
     id: Runes.IO,
     name: "Io",
+    image: Io,
     level: 35,
     stats: [
       {
@@ -338,6 +389,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.LUM, {
     id: Runes.LUM,
     name: "Lum",
+    image: Lum,
     level: 37,
     stats: [
       {
@@ -351,6 +403,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.KO, {
     id: Runes.KO,
     name: "Ko",
+    image: Ko,
     level: 39,
     stats: [
       {
@@ -364,6 +417,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.FAL, {
     id: Runes.FAL,
     name: "Fal",
+    image: Fal,
     level: 41,
     stats: [
       {
@@ -377,6 +431,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.LEM, {
     id: Runes.LEM,
     name: "Lem",
+    image: Lem,
     level: 43,
     stats: [
       {
@@ -396,6 +451,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.PUL, {
     id: Runes.PUL,
     name: "Pul",
+    image: Pul,
     level: 45,
     stats: [
       {
@@ -416,6 +472,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.UM, {
     id: Runes.UM,
     name: "Um",
+    image: Um,
     level: 47,
     stats: [
       {
@@ -441,6 +498,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.MAL, {
     id: Runes.MAL,
     name: "Mal",
+    image: Mal,
     level: 49,
     stats: [
       {
@@ -460,6 +518,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.IST, {
     id: Runes.IST,
     name: "Ist",
+    image: Ist,
     level: 51,
     stats: [
       {
@@ -479,6 +538,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.GUL, {
     id: Runes.GUL,
     name: "Gul",
+    image: Gul,
     level: 53,
     stats: [
       {
@@ -498,6 +558,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.VEX, {
     id: Runes.VEX,
     name: "Vex",
+    image: Vex,
     level: 55,
     stats: [
       {
@@ -517,6 +578,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.OHM, {
     id: Runes.OHM,
     name: "Ohm",
+    image: Ohm,
     level: 57,
     stats: [
       {
@@ -536,6 +598,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.LO, {
     id: Runes.LO,
     name: "Lo",
+    image: Lo,
     level: 59,
     stats: [
       {
@@ -555,6 +618,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.SUR, {
     id: Runes.SUR,
     name: "Sur",
+    image: Sur,
     level: 61,
     stats: [
       {
@@ -580,6 +644,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.BER, {
     id: Runes.BER,
     name: "Ber",
+    image: Ber,
     level: 63,
     stats: [
       {
@@ -599,6 +664,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.JAH, {
     id: Runes.JAH,
     name: "Jah",
+    image: Jah,
     level: 65,
     stats: [
       {
@@ -624,6 +690,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.CHAM, {
     id: Runes.CHAM,
     name: "Cham",
+    image: Cham,
     level: 67,
     stats: [
       {
@@ -643,6 +710,7 @@ export const runesById: Map<Runes, IRune> = new Map([
   [Runes.ZOD, {
     id: Runes.ZOD,
     name: "Zod",
+    image: Zod,
     level: 69,
     stats: [
       {
