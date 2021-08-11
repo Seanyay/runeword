@@ -38,7 +38,7 @@ const {
   ZOD
 } = Runes;
 
-export const runeWords: IRuneWord[] = [
+const runeWords: IRuneWord[] = [
   {
     name: RuneWords.ANCIENTS_PLEDGE,
     runes: [RAL, ORT, TAL],
@@ -565,3 +565,9 @@ export const runeWords: IRuneWord[] = [
     ladderOnly: false
   }
 ];
+
+const runeWordsById: Map<RuneWords, IRuneWord> = new Map();
+runeWords.forEach(rw => {
+  runeWordsById.set(rw.name, rw);
+});
+export { runeWordsById };

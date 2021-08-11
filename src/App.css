@@ -16,6 +16,10 @@
 
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'ExocetLight', Arial, Helvetica, sans-serif;
   font-size: 13px;
@@ -25,9 +29,14 @@ body {
   text-align: center;
 }
 
+.Header {
+  font-size: 40px;
+}
+
 .Panes {
   display: flex;
   flex-direction: row;
+  padding: 20px;
 }
 
 .NoResults {
@@ -44,7 +53,9 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   flex-grow: 1;
-  flex-basis: 200px;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  align-content: flex-start;
 }
 
 .Rune {
@@ -70,8 +81,11 @@ body {
 
 .RuneWords {
   display: flex;
-  flex-grow: 1;
-  flex-direction: column;
+  flex-grow: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  max-height: 600px;
+  overflow-y: auto
 }

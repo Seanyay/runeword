@@ -25,3 +25,8 @@ export interface IRuneWord {
   attributes: NonNullable<string[]>;
   ladderOnly: boolean;
 }
+
+export interface ISelectedRunes {
+  selectedRunes: Set<Runes>;
+  setSelectedRunes: StateDispatch<Set<Runes>>;
+}
