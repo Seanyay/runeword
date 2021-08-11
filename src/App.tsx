@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 import './App.css';
 import { runeWordsById } from './constants/runeWords';
-import { Runes } from './enums/Runes';
-import { IRuneWord } from './interfaces';
+import { IRuneWord, SelectedRune } from './interfaces';
 import RuneCounter from './RuneCounter';
 import RuneWords from './RuneWords';
 
 
 function App() {
-  const [selectedRunes, setSelectedRunes] = useState(new Set<Runes>());
+  const [selectedRunes, setSelectedRunes] = useState<SelectedRune>(new Map());
   const runeWordMatchesByName: Set<IRuneWord> = new Set();
 
   // Find the runeword matches
   runeWordsById.forEach(runeWord => {
     runeWord.runes.forEach(rune => {
-      if (selectedRunes.has(rune) && !runeWordMatchesByName.has(runeWord)) {
+      const runeCount = runeWord.runes.filter(r => r === rune).length;
+      const numOfRune = selectedRunes.get(rune);
+      if (numOfRune != null && numOfRune >= runeCount && !runeWordMatchesByName.has(runeWord)) {
         runeWordMatchesByName.add(runeWord);
       }
     })
   })
 
   function reset() {
-    setSelectedRunes(new Set());
+    setSelectedRunes(new Map());
   }
   
   return (

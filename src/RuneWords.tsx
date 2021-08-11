@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { runeWordsById } from './constants/runeWords';
 import { IRuneWord } from './interfaces';
 import RuneWord from './RuneWord';
 
@@ -17,6 +18,9 @@ function RuneWords(props: IProps) {
 
   return (
     <div className="RuneWords">
+      <div className="FilterBar">
+        {runeWordMatchItems.length > 0 && <div className="Count">Showing {runeWordMatchItems.length} of {runeWordsById.size} runewords</div>}
+      </div>
       {runeWordMatchItems.length ? runeWordMatchItems : <div className="NoResults">Select runes to see suggested rune words</div>}
     </div>
   );

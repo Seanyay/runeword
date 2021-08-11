@@ -23,6 +23,7 @@
 
 .RuneWord .Word {
   color: rgb(144, 136, 88);
+  padding: 4px;
   font-family: 'ExocetLight';
   font-size: 15px;
   vertical-align: middle;
@@ -54,6 +55,7 @@
 
 .WordPart {
   height: 40px;
+  padding: 3px;
 }
 
 .WordPartPlus {

@@ -26,7 +26,9 @@ export interface IRuneWord {
   ladderOnly: boolean;
 }
 
+export type SelectedRune = Map<Runes, number>;
+
 export interface ISelectedRunes {
-  selectedRunes: Set<Runes>;
-  setSelectedRunes: StateDispatch<Set<Runes>>;
+  selectedRunes: SelectedRune;
+  setSelectedRunes: StateDispatch<SelectedRune>;
 }
