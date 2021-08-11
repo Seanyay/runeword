@@ -11,12 +11,12 @@
 
 .RuneWord .Header {
   font-family: 'ExocetHeavy';
-  font-size: 15px;
+  font-size: 17px;
   color: rgb(144, 136, 88);
 }
 
 .RuneWord .Type {
-  color: #666;
+  color: #8a8a8a;
   padding: 8px 0;
   font-size: 14px;
 }
