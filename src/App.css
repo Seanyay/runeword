@@ -52,12 +52,13 @@ body {
 
 .RuneCounter {
   display: flex;
-  max-width: 475px;
+  max-width: 300px;
+  margin-top: 32px;
   flex-direction: row;
   flex-wrap: wrap;
   flex-grow: 1;
   flex-shrink: 0;
-  flex-basis: 60%;
+  flex-basis: 50%;
   align-content: flex-start;
 }
 
@@ -89,7 +90,7 @@ body {
 
 .RuneWords {
   display: flex;
-  flex-grow: 0;
+  flex-grow: 1;
   flex-direction: column;
   padding: 15px;
   padding-top: 0;
