@@ -1,32 +1,42 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './RuneWord.css';
-import { IRuneWord, SelectedRune } from './interfaces';
+import { IRune, IRuneWord, SelectedRune } from './interfaces';
 import { runesById } from './constants/runes';
+import { Runes } from './enums/Runes';
+import WordPart from './WordPart';
 
 interface IProps {
   runeWord: IRuneWord;
   selectedRunes: SelectedRune;
+  setHighlightedRune: (rune: Runes, remove?: boolean) => void;
 }
 
 function RuneWord(props: IProps) {
-  const { runeWord, selectedRunes } = props;
-  const { name, ladderOnly, attributes, itemTypes, runes } = runeWord;
-  const wordItems: JSX.Element[] = Array.from(runes, (rune, i) => {
-    const r = runesById.get(rune);
-    const ownedCount = selectedRunes.get(rune);
+  const { runeWord, selectedRunes, setHighlightedRune } = props;
+  const { name, ladderOnly, attributes, itemTypes, runes, level } = runeWord;
+  const remainingRunes: Map<Runes, number> = new Map();
+
+
+
+  runes.forEach(rune => {
+    // bootstrap the fulfilled map
+    remainingRunes.set(rune, selectedRunes.get(rune) ?? 0);
+  });
+
+  const wordItems: JSX.Element[] = Array.from(runes, (runeId, i) => {
+    const rune = runesById.get(runeId);
+    const cur = remainingRunes.get(runeId) ?? 0;
+    const isOwned = cur != null && cur > 0;
+    remainingRunes.set(runeId, cur > 0 ? cur - 1 : 0);
+
     return (
-      <Fragment key={i}>
-        <div className={`WordPart ${ownedCount && "IsOwned"}`}>
-          <img className="SmallRune" src={r?.image} alt={`${r?.name}`} title={`${r?.name}`} />
-          <div>{r?.name}</div>
-        </div>
-        {i < runes.length - 1 ? <div className="WordPartPlus">+</div> : null}
-      </Fragment>
+      <WordPart key={i} rune={rune as IRune} isOwned={isOwned} runes={runes} i={i} setHighlightedRune={setHighlightedRune} />
     );
   });
 
   return (
     <div className="RuneWord">
+      <div className="Clvl">{`CLVL ${level}`}</div>
       <header className="Header">{name}</header>
       <div className="Type">
         <span className="Sockets">({runes.length}) Socket</span> {itemTypes.join(', ')}

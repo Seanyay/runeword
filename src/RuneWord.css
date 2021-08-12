@@ -7,6 +7,7 @@
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   padding: 5px;
+  position: relative;
 }
 
 .RuneWord .Header {
@@ -23,13 +24,13 @@
 
 .RuneWord .Word {
   color: rgb(144, 136, 88);
-  padding: 4px;
+  padding: 8px 0;
   font-family: 'ExocetLight';
   font-size: 15px;
   vertical-align: middle;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .RuneWord .Word img {
@@ -53,8 +54,22 @@
   height: 24px;
 }
 
+.RuneWord .Clvl {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 30px;
+  color: rgb(146, 146, 146);
+  background-color: rgb(37, 37, 37);
+  border: 1px solid #666;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .WordPart {
-  padding: 5px;
+  padding: 3px 7px;
   border-radius: 5px;
 }
 
@@ -62,8 +77,13 @@
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   align-self: center;
+  width: 17px;
 }
 
 .WordPart.IsOwned {
-  background: #a8d6a8;
+  background-color: #c3ecc3;
+  background-image: url('./assets/check.svg');
+  background-position: calc(100% - 1px) 1px;
+  background-size: 11px;
+  background-repeat: no-repeat;
 }

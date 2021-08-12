@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { runeWordsById } from './constants/runeWords';
+import { Runes } from './enums/Runes';
 import { RuneWordSort } from './enums/RuneWordSort';
 import { IRuneWord, SelectedRune } from './interfaces';
 import RuneCounter from './RuneCounter';
@@ -14,15 +15,16 @@ interface IHaveRune {
 
 function App() {
   const [selectedRunes, setSelectedRunes] = useState<SelectedRune>(new Map());
+  const [highlightedRunes, setHighlightedRunes] = useState<Set<Runes>>(new Set());
+
   let runeWordMatchesByName: Set<IRuneWord> = new Set();
 
   // Find the runeword matches
   if (selectedRunes.size) {
     runeWordsById.forEach(runeWord => {
       runeWord.runes.forEach(rune => {
-        const runeCount = runeWord.runes.filter(r => r === rune).length;
         const numOfRune = selectedRunes.get(rune);
-        if (numOfRune != null && numOfRune >= runeCount && !runeWordMatchesByName.has(runeWord)) {
+        if (numOfRune != null && numOfRune && !runeWordMatchesByName.has(runeWord)) {
           runeWordMatchesByName.add(runeWord);
         }
       });
@@ -40,12 +42,14 @@ function App() {
       for (const [runeWord] of runeWordMatchesByName.entries()) {
         const { runes } = runeWord;
         let haveRequiredRunes = 0;
+
         // check to see how much of each rune we have in the runeword
         runes.forEach(rune => {
           const neededOfRune = runes.filter(r => r === rune).length;
           const s = selectedRunes.get(rune);
-          if (s != null && s / neededOfRune >= 1) {
-            haveRequiredRunes++;
+          if (s != null && s / neededOfRune > 0) {
+            const ratio = s / neededOfRune;
+            haveRequiredRunes = haveRequiredRunes + (ratio < 1 ? ratio : 1);
           }
         });
 
@@ -65,14 +69,21 @@ function App() {
         o.push(hr.runeWord);
       });
 
-      // console.log(haveRunes);
     }
     return new Set(o);
   }
 
-  function reset() {
-    setSelectedRunes(new Map());
+  function setHighlightedRune(rune: Runes, remove: boolean = false) {
+    const newHighlightedRunes = new Set(highlightedRunes);
+    if (remove) {
+      newHighlightedRunes.delete(rune);
+    }
+    else {
+      newHighlightedRunes.add(rune);
+    }
+    setHighlightedRunes(newHighlightedRunes);
   }
+
   
   return (
     <div className="App">
@@ -80,11 +91,8 @@ function App() {
         Runeword Calculator
       </header>
       <div className="Panes">
-        <RuneCounter selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} />
-        <RuneWords selectedRunes={selectedRunes} runeWordMatchesByName={runeWordMatchesByName} />
-      </div>
-      <div>
-        <button onClick={reset}>Reset</button>
+        <RuneCounter selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} highlightedRunes={highlightedRunes} />
+        <RuneWords selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
     </div>
   );

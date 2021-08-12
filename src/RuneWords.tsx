@@ -1,28 +1,29 @@
 import React from 'react';
 import './App.css';
-import { runeWordsById } from './constants/runeWords';
-import { IRuneWord, SelectedRune } from './interfaces';
+import { Runes } from './enums/Runes';
+import FilterBar from './FilterBar';
+import { IRuneWord, ISelectedRunes } from './interfaces';
 import RuneWord from './RuneWord';
 
-interface IProps {
+interface IProps extends ISelectedRunes {
   runeWordMatchesByName: Set<IRuneWord>;
-  selectedRunes: SelectedRune;
+  setHighlightedRune: (rune: Runes, remove?: boolean) => void;
 }
 
 function RuneWords(props: IProps) {
-  const { runeWordMatchesByName, selectedRunes } = props;
+  const { runeWordMatchesByName, selectedRunes, setSelectedRunes, setHighlightedRune } = props;
   const runeWordMatchItems: JSX.Element[] = [];
 
   runeWordMatchesByName.forEach(rw => {
-    runeWordMatchItems.push(<RuneWord key={rw.name} runeWord={rw} selectedRunes={selectedRunes} />);
+    runeWordMatchItems.push(<RuneWord key={rw.name} runeWord={rw} selectedRunes={selectedRunes} setHighlightedRune={setHighlightedRune} />);
   })
 
   return (
     <div className="RuneWords">
-      <div className="FilterBar">
-        {runeWordMatchItems.length > 0 && <div className="Count">Showing {runeWordMatchItems.length} of {runeWordsById.size} runewords</div>}
+      <FilterBar runeWordMatchItems={runeWordMatchItems} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />
+      <div className="RuneWordsContent">
+        {runeWordMatchItems.length ? runeWordMatchItems : <div className="NoResults">Select runes to see suggested rune words</div>}
       </div>
-      {runeWordMatchItems.length ? runeWordMatchItems : <div className="NoResults">Select runes to see suggested rune words</div>}
     </div>
   );
 }

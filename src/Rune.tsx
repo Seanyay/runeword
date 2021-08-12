@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
+import { Runes } from './enums/Runes';
 import { IRune, ISelectedRunes } from './interfaces';
 
 interface IProps extends ISelectedRunes {
   rune: IRune;
+  highlightedRunes: Set<Runes>;
 }
 
-
 function Rune(props: IProps) {
-  const { setSelectedRunes, selectedRunes, rune } = props;
+  const { setSelectedRunes, selectedRunes, rune, highlightedRunes } = props;
   const { id, name, image } = rune;
+  const isHighlighted = highlightedRunes.has(id);
 
   function selectRune(dir: number = 1) {
     const sr = new Map(selectedRunes);
@@ -29,7 +31,7 @@ function Rune(props: IProps) {
   }
 
   return (
-    <div className={`Rune`} onClick={() => selectRune()} onContextMenu={(e) => {
+    <div className={`Rune ${isHighlighted ? "IsHighlighted" : ""}`} onClick={() => selectRune()} onContextMenu={(e) => {
       e.preventDefault();
       selectRune(-1);
     }}>
