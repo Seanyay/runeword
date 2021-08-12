@@ -13,21 +13,26 @@ function Rune(props: IProps) {
   const { id, name, image } = rune;
   const isHighlighted = highlightedRunes.has(id);
 
-  function selectRune(dir: number = 1) {
+  function selectRune(dir: number = 1, directSet: boolean = false) {
     const sr = new Map(selectedRunes);
     let s = sr.get(rune.id);
-    if (s != null) {
+
+    if (directSet) {
+      sr.set(rune.id, dir);
+    }
+    else if (s != null) {
       const newVal = s + dir;
       sr.set(rune.id, newVal < 0 ? 0 : newVal);
     }
     else {
       sr.set(rune.id, dir === -1 ? 0 : 1);
     }
+
     setSelectedRunes(sr);
   }
 
-  function handleInputChange(e) {
-    console.log('chg');
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    selectRune(+e.target.value, true);
   }
 
   return (
