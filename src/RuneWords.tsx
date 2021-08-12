@@ -1,19 +1,20 @@
 import React from 'react';
 import './App.css';
 import { runeWordsById } from './constants/runeWords';
-import { IRuneWord } from './interfaces';
+import { IRuneWord, SelectedRune } from './interfaces';
 import RuneWord from './RuneWord';
 
 interface IProps {
   runeWordMatchesByName: Set<IRuneWord>;
+  selectedRunes: SelectedRune;
 }
 
 function RuneWords(props: IProps) {
-  const { runeWordMatchesByName } = props;
+  const { runeWordMatchesByName, selectedRunes } = props;
   const runeWordMatchItems: JSX.Element[] = [];
 
   runeWordMatchesByName.forEach(rw => {
-    runeWordMatchItems.push(<RuneWord key={rw.name} runeWord={rw} />);
+    runeWordMatchItems.push(<RuneWord key={rw.name} runeWord={rw} selectedRunes={selectedRunes} />);
   })
 
   return (

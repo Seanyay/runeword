@@ -23,6 +23,7 @@ export interface IRuneWord {
   runes: Runes[];
   itemTypes: Array<ArmorTypes | WeaponTypes>;
   attributes: NonNullable<string[]>;
+  level: number;
   ladderOnly: boolean;
 }
 

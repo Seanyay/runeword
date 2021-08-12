@@ -1,0 +1,6 @@
+export enum RuneWordSort {
+  HAVE_RUNES,
+  ALPHABETICAL_ASC,
+  ALPHABETICAL_DESC,
+  CLVL
+}

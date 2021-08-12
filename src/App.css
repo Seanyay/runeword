@@ -50,6 +50,7 @@ body {
 
 .RuneCounter {
   display: flex;
+  max-width: 475px;
   flex-direction: row;
   flex-wrap: wrap;
   flex-grow: 1;
@@ -82,13 +83,12 @@ body {
 .RuneWords {
   display: flex;
   flex-grow: 0;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   max-height: 600px;
   overflow-y: auto;
   padding: 15px;
+  padding-top: 0;
 }
 
 .RuneWords .FilterBar {

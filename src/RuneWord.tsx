@@ -1,20 +1,22 @@
 import React, { Fragment } from 'react';
 import './RuneWord.css';
-import { IRuneWord } from './interfaces';
+import { IRuneWord, SelectedRune } from './interfaces';
 import { runesById } from './constants/runes';
 
 interface IProps {
   runeWord: IRuneWord;
+  selectedRunes: SelectedRune;
 }
 
 function RuneWord(props: IProps) {
-  const { runeWord } = props;
+  const { runeWord, selectedRunes } = props;
   const { name, ladderOnly, attributes, itemTypes, runes } = runeWord;
   const wordItems: JSX.Element[] = Array.from(runes, (rune, i) => {
     const r = runesById.get(rune);
+    const ownedCount = selectedRunes.get(rune);
     return (
       <Fragment key={i}>
-        <div className="WordPart">
+        <div className={`WordPart ${ownedCount && "IsOwned"}`}>
           <img className="SmallRune" src={r?.image} alt={`${r?.name}`} title={`${r?.name}`} />
           <div>{r?.name}</div>
         </div>
