@@ -171,7 +171,7 @@ const runeWords: IRuneWord[] = [
     name: RuneWords.STEEL,
     runes: [TIR, EL],
     itemTypes: [WeaponTypes.SWORDS, WeaponTypes.AXES, WeaponTypes.MACES],
-    attributes: ["+25% Faster Run/Walk", "+25% Faster Casting Rate", "+25% Faster Hit Recovery", "+6 to Dexterity", "Regenerate Mana 15%", "+15 Maximum Stamina", "Poison Resist +30%", "Magic Damage Reduced by 3"],
+    attributes: ["+25% Increased Attack Speed", "+20% Enhanced Damage", "+3 to Minimum Damage", "+3 to Maximum Damage", "+50 to Attack Rating", "50% Chance of Open Wounds", "+2 to Mana after each Kill", "+1 to Light Radius"],
     level: 13,
     ladderOnly: false
   },

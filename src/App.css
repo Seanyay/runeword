@@ -113,6 +113,10 @@ body {
   justify-content: space-between
 }
 
+.RuneWords .Count {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .Reset {
   background-image: url('./assets/reset.svg');
   background-repeat: no-repeat;
