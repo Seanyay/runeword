@@ -33,3 +33,8 @@ export interface ISelectedRunes {
   selectedRunes: SelectedRune;
   setSelectedRunes: StateDispatch<SelectedRune>;
 }
+
+export interface ISelectOption<T> {
+  label: string;
+  value: T;
+}
