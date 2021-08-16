@@ -1,19 +1,18 @@
 import React from 'react';
 import './App.css';
-import filterOptions from './constants/filterOptions';
-import { runeWordsById } from './constants/runeWords';
+import sortOptions from './constants/filterOptions';
 import { RuneWordSort } from './enums/RuneWordSort';
 import { ISelectedRunes } from './interfaces';
+import { removeItem } from './utils';
 
 interface IProps extends ISelectedRunes {
-  runeWordMatchItems: JSX.Element[];
   setRuneWordSort: (method: RuneWordSort) => void;
   sortMethod: RuneWordSort;
 }
 
 function FilterBar(props: IProps) {
-  const { runeWordMatchItems, setSelectedRunes, selectedRunes, sortMethod, setRuneWordSort } = props;
-  const filterOptionItems: JSX.Element[] = Array.from(filterOptions, fo => {
+  const { setSelectedRunes, selectedRunes, sortMethod, setRuneWordSort } = props;
+  const sortOptionItems: JSX.Element[] = Array.from(sortOptions, fo => {
     return <option key={fo.value} value={fo.value}>{fo.label}</option>;
   });
 
@@ -24,13 +23,13 @@ function FilterBar(props: IProps) {
 
   function reset() {
     setSelectedRunes(new Map());
+    removeItem('runes');
   }
 
   return (
     <div className="FilterBar">
       {selectedRunes.size > 0 && <button className="Reset" onClick={reset} />}
-      {selectedRunes.size > 0 && <select value={sortMethod} onChange={handleFilterChange}>{filterOptionItems}</select>}
-      {runeWordMatchItems.length > 0 && <div className="Count">Showing {runeWordMatchItems.length} of {runeWordsById.size} runewords</div>}
+      {selectedRunes.size > 0 && <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select>}
     </div>
   );
 }

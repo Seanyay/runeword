@@ -1,7 +1,7 @@
 import { RuneWordSort } from "../enums/RuneWordSort";
 import { ISelectOption } from "../interfaces";
 
-const filterOptions: ISelectOption<RuneWordSort>[] = [
+const sortOptions: ISelectOption<RuneWordSort>[] = [
   {
     label: "Have Runes",
     value: RuneWordSort.HAVE_RUNES
@@ -24,4 +24,4 @@ const filterOptions: ISelectOption<RuneWordSort>[] = [
   }
 ];
 
-export default filterOptions;
+export default sortOptions;

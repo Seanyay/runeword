@@ -37,3 +37,7 @@ export function getItem(key: string, parse: boolean = true): any {
   const item = localStorage.getItem(key);
   return parse && item != null ? JSON.parse(item) : item;
 }
+
+export function removeItem(key: string): void {
+  localStorage.removeItem(key);
+}

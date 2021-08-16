@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { runeWordsById } from './constants/runeWords';
 import { Runes } from './enums/Runes';
 import { RuneWordSort } from './enums/RuneWordSort';
 import FilterBar from './FilterBar';
@@ -23,10 +24,11 @@ function RuneWords(props: IProps) {
 
   return (
     <div className="RuneWords">
-      <FilterBar setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} runeWordMatchItems={runeWordMatchItems} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />
+      <FilterBar setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />
       <div className="RuneWordsContent">
         {runeWordMatchItems.length ? runeWordMatchItems : <div className="NoResults">Select runes to see suggested rune words</div>}
       </div>
+      {runeWordMatchItems.length > 0 && <div className="Count">Showing {runeWordMatchItems.length} of {runeWordsById.size} runewords</div>}
     </div>
   );
 }

@@ -23,16 +23,20 @@
 body {
   font-family: 'ExocetLight', Arial, Helvetica, sans-serif;
   font-size: 13px;
+  color: white;
 }
 
 .App {
   text-align: center;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 10px auto;
+  border-radius: 7px;
+  background-color: #1e1107;
 }
 
 .Header {
-  font-size: 40px;
+  font-size: 30px;
+  padding-top: 10px;
 }
 
 .Panes {
@@ -46,7 +50,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  color: #333;
+  color: #ebebeb;
   font-weight: bold;
 }
 
@@ -65,18 +69,18 @@ body {
 .Rune {
   width: 50px;
   padding: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #8a6767;
   user-select: none;
   position: relative;
 }
 
 .Rune.IsHighlighted {
   border-color: green;
-  background-color: #ebebeb;
+  background-color: #5d3b21;;
 }
 
 .Rune:hover {
-  background-color: #ebebeb;
+  background-color: #5d3b21;
   cursor: pointer;
 }
 
@@ -85,7 +89,7 @@ body {
 }
 
 .Rune.Selected {
-  background-color: #d6ffc5;
+  background-color: #5d3b21;
 }
 
 .RuneWords {
@@ -115,6 +119,7 @@ body {
 
 .RuneWords .Count {
   font-family: Arial, Helvetica, sans-serif;
+  padding: 12px;
 }
 
 .Reset {
