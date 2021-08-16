@@ -8,10 +8,12 @@ import { removeItem } from './utils';
 interface IProps extends ISelectedRunes {
   setRuneWordSort: (method: RuneWordSort) => void;
   sortMethod: RuneWordSort;
+  filterSearch: string;
+  setFilterSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
 function FilterBar(props: IProps) {
-  const { setSelectedRunes, selectedRunes, sortMethod, setRuneWordSort } = props;
+  const { setSelectedRunes, selectedRunes, sortMethod, setRuneWordSort, setFilterSearch, filterSearch } = props;
   const sortOptionItems: JSX.Element[] = Array.from(sortOptions, fo => {
     return <option key={fo.value} value={fo.value}>{fo.label}</option>;
   });
@@ -20,15 +22,21 @@ function FilterBar(props: IProps) {
     setRuneWordSort(+e.target.value);
   }
 
+  function handleSetFilterSearch(e: React.ChangeEvent<HTMLInputElement>): void {
+    setFilterSearch(e.target.value);
+  }
 
   function reset() {
     setSelectedRunes(new Map());
+    setFilterSearch('');
     removeItem('runes');
   }
+
 
   return (
     <div className="FilterBar">
       {selectedRunes.size > 0 && <button className="Reset" onClick={reset} />}
+      {selectedRunes.size > 0 && <input type="text" value={filterSearch} onChange={handleSetFilterSearch} placeholder="Filter by runeword name" />}
       {selectedRunes.size > 0 && <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select>}
     </div>
   );

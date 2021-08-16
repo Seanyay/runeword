@@ -12,19 +12,23 @@ interface IProps extends ISelectedRunes {
   setHighlightedRune: (rune: Runes, remove?: boolean) => void;
   sortMethod: RuneWordSort;
   setRuneWordSort: (method: RuneWordSort) => void;
+  filterSearch: string;
+  setFilterSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
 function RuneWords(props: IProps) {
-  const { runeWordMatchesByName, selectedRunes, setSelectedRunes, setHighlightedRune, sortMethod, setRuneWordSort } = props;
+  const { runeWordMatchesByName, selectedRunes, setSelectedRunes, setHighlightedRune, sortMethod, setRuneWordSort, filterSearch, setFilterSearch } = props;
   const runeWordMatchItems: JSX.Element[] = [];
 
   runeWordMatchesByName.forEach(rw => {
-    runeWordMatchItems.push(<RuneWord key={rw.name} runeWord={rw} selectedRunes={selectedRunes} setHighlightedRune={setHighlightedRune} />);
+    if (!filterSearch.length || (filterSearch.length && (rw.name.toLowerCase().search(filterSearch.toLowerCase()) > -1))) { 
+      runeWordMatchItems.push(<RuneWord key={rw.name} runeWord={rw} selectedRunes={selectedRunes} setHighlightedRune={setHighlightedRune} />);
+    }
   })
 
   return (
     <div className="RuneWords">
-      <FilterBar setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />
+      <FilterBar filterSearch={filterSearch} setFilterSearch={setFilterSearch} setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />
       <div className="RuneWordsContent">
         {runeWordMatchItems.length ? runeWordMatchItems : <div className="NoResults">Select runes to see suggested rune words</div>}
       </div>

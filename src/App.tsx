@@ -18,6 +18,8 @@ function App() {
   const [selectedRunes, setSelectedRunes] = useState<SelectedRune>(new Map());
   const [highlightedRunes, setHighlightedRunes] = useState<Set<Runes>>(new Set());
   const [sortMethod, setSortMethod] = useState<RuneWordSort>(RuneWordSort.HAVE_RUNES);
+  const [filterSearch, setFilterSearch] = useState('');
+
   let runeWordMatchesByName: Set<IRuneWord> = new Set();
 
   // Load saved runes from localStorage
@@ -42,6 +44,7 @@ function App() {
 
     runeWordMatchesByName = applyRuneWordSort(sortMethod);
   }
+
 
   function applyRuneWordSort(sort: RuneWordSort) {
     let o: IRuneWord[] = [];
@@ -127,7 +130,7 @@ function App() {
       </header>
       <div className="Panes">
         <RuneCounter selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
-        <RuneWords sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
+        <RuneWords filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
     </div>
   );
