@@ -13,12 +13,13 @@
   font-family: 'ExocetHeavy';
   font-size: 17px;
   color: rgb(144, 136, 88);
+  text-transform: uppercase;
 }
 
 .RuneWord .Type {
   color: #8a8a8a;
   padding: 8px 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .RuneWord .Word {
@@ -26,6 +27,7 @@
   padding: 8px 0;
   font-family: 'ExocetLight';
   font-size: 15px;
+  font-weight: bold;
   vertical-align: middle;
   display: flex;
   flex-direction: row;
@@ -37,7 +39,7 @@
 }
 
 .RuneWord .Body {
-  color: #5050ac;
+  color: #8383ea;
 }
 
 .RuneWord .Body p {
@@ -57,12 +59,12 @@
   position: absolute;
   top: 4px;
   left: 4px;
-  width: 30px;
+  width: 45px;
   color: rgb(146, 146, 146);
   background-color: rgb(37, 37, 37);
   border: 1px solid #666;
   border-radius: 2px;
-  font-size: 10px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
 }
