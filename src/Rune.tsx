@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
 import { Runes } from './enums/Runes';
-import { IRune, ISelectedRunes } from './interfaces';
+import { IRune, SelectedRune } from './interfaces';
 
-interface IProps extends ISelectedRunes {
+interface IProps {
   rune: IRune;
   highlightedRunes: Set<Runes>;
+  selectedRunes: SelectedRune;
+  setRunes: (runes: SelectedRune) => void;
 }
 
 function Rune(props: IProps) {
-  const { setSelectedRunes, selectedRunes, rune, highlightedRunes } = props;
+  const { setRunes, selectedRunes, rune, highlightedRunes } = props;
   const { id, name, image } = rune;
   const isHighlighted = highlightedRunes.has(id);
 
@@ -28,7 +30,7 @@ function Rune(props: IProps) {
       sr.set(rune.id, dir === -1 ? 0 : 1);
     }
 
-    setSelectedRunes(sr);
+    setRunes(sr);
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {

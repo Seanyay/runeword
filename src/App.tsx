@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { runeWordsById } from './constants/runeWords';
 import { Runes } from './enums/Runes';
@@ -6,6 +6,7 @@ import { RuneWordSort } from './enums/RuneWordSort';
 import { IRuneWord, SelectedRune } from './interfaces';
 import RuneCounter from './RuneCounter';
 import RuneWords from './RuneWords';
+import { convertArrayToMap, convertMapToArray, convertSetToArray, getItem, setItem } from './utils';
 
 interface IHaveRune {
   runeWord: IRuneWord;
@@ -17,8 +18,16 @@ function App() {
   const [selectedRunes, setSelectedRunes] = useState<SelectedRune>(new Map());
   const [highlightedRunes, setHighlightedRunes] = useState<Set<Runes>>(new Set());
   const [sortMethod, setSortMethod] = useState<RuneWordSort>(RuneWordSort.HAVE_RUNES);
-
   let runeWordMatchesByName: Set<IRuneWord> = new Set();
+
+  // Load saved runes from localStorage
+  useEffect(() => {
+    const lsRunes = getItem('runes');
+    if (lsRunes != null) {
+      const r = convertArrayToMap<SelectedRune>(getItem('runes'));
+      setSelectedRunes(r);
+    }
+  }, []);
 
   // Find the runeword matches
   if (selectedRunes.size) {
@@ -32,14 +41,6 @@ function App() {
     });
 
     runeWordMatchesByName = applyRuneWordSort(sortMethod);
-  }
-
-  function convertSetToArray(set: Set<IRuneWord>): IRuneWord[] {
-    let o: IRuneWord[] = [];
-    set.forEach(rw => {
-      o.push(rw);
-    });
-    return o;
   }
 
   function applyRuneWordSort(sort: RuneWordSort) {
@@ -81,19 +82,19 @@ function App() {
     }
     // Sort by name, ascending
     else if (sort === RuneWordSort.ALPHABETICAL_ASC) {
-      o = convertSetToArray(runeWordMatchesByName).sort((a, b) => a.name.localeCompare(b.name));
+      o = convertSetToArray<IRuneWord>(runeWordMatchesByName).sort((a, b) => a.name.localeCompare(b.name));
     }
     // Sort by name, descending
     else if (sort === RuneWordSort.ALPHABETICAL_DESC) {
-      o = convertSetToArray(runeWordMatchesByName).sort((a, b) => b.name.localeCompare(a.name));
+      o = convertSetToArray<IRuneWord>(runeWordMatchesByName).sort((a, b) => b.name.localeCompare(a.name));
     }
     // Sort by CLVL, ascending
     else if (sort === RuneWordSort.CLVL_ASC) {
-      o = convertSetToArray(runeWordMatchesByName).sort((a, b) => a.level - b.level);
+      o = convertSetToArray<IRuneWord>(runeWordMatchesByName).sort((a, b) => a.level - b.level);
     }
     // Sort by CLVL, descending
     else if (sort === RuneWordSort.CLVL_DESC) {
-      o = convertSetToArray(runeWordMatchesByName).sort((a, b) => b.level - a.level);
+      o = convertSetToArray<IRuneWord>(runeWordMatchesByName).sort((a, b) => b.level - a.level);
     }
     return new Set(o);
   }
@@ -113,6 +114,11 @@ function App() {
     setSortMethod(method);
   }
 
+  function setRunes(runes: SelectedRune) {
+    setSelectedRunes(runes);
+    setItem('runes', convertMapToArray<Runes, number>(runes));
+  }
+
   
   return (
     <div className="App">
@@ -120,7 +126,7 @@ function App() {
         Runeword Calculator
       </header>
       <div className="Panes">
-        <RuneCounter selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} highlightedRunes={highlightedRunes} />
+        <RuneCounter selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
         <RuneWords sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
     </div>
