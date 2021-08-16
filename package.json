@@ -2,7 +2,11 @@
   "name": "runeword",
   "version": "1.0.0",
   "author": "Andy Parisi",
-  "private": true,
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andyparisi/runeword"
+  },
   "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
