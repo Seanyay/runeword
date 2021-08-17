@@ -129,6 +129,7 @@ function App() {
         <RuneCounter selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
         <RuneWords filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
+      <footer className={styles.Footer}>Built by <a href="https://github.com/andyparisi/runeword" target="_blank" rel="noreferrer">Andy Parisi</a></footer>
     </div>
   );
 }
