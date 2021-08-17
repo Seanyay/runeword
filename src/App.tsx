@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import styles from './sass/App.module.sass';
 import { runeWordsById } from './constants/runeWords';
 import { Runes } from './enums/Runes';
 import { RuneWordSort } from './enums/RuneWordSort';
@@ -124,8 +124,8 @@ function App() {
 
   
   return (
-    <div className="App">
-      <div className="Panes">
+    <div className={styles.App}>
+      <div className={styles.Panes}>
         <RuneCounter selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
         <RuneWords filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>

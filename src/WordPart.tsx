@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Runes } from './enums/Runes';
 import { IRune } from './interfaces';
-import './RuneWord.css';
+import styles from './sass/RuneWord.module.sass';
 
 interface IProps {
   rune: IRune;
@@ -16,11 +16,11 @@ function WordPart(props: IProps) {
 
   return (
     <Fragment key={i}>
-      <div className={`WordPart ${isOwned ? "IsOwned" : ""}`} onMouseEnter={() => setHighlightedRune(rune.id)} onMouseLeave={() => setHighlightedRune(rune.id, true)}>
-        <img className="SmallRune" src={rune?.image} alt={`${rune?.name}`} title={`${rune?.name}`} />
+      <div className={`${styles.WordPart} ${isOwned ? styles.IsOwned : ""}`} onMouseEnter={() => setHighlightedRune(rune.id)} onMouseLeave={() => setHighlightedRune(rune.id, true)}>
+        <img className={styles.SmallRune} src={rune?.image} alt={`${rune?.name}`} title={`${rune?.name}`} />
         <div>{rune?.name}</div>
       </div>
-      {i < runes.length - 1 ? <div className="WordPartPlus">+</div> : null}
+      {i < runes.length - 1 ? <div className={styles.WordPartPlus}>+</div> : null}
     </Fragment>
   );
 }

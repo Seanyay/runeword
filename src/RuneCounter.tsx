@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './sass/App.module.sass';
 import { runesById } from './constants/runes';
 import { Runes } from './enums/Runes';
 import { SelectedRune } from './interfaces';
@@ -20,7 +20,7 @@ function RuneCounter(props: IProps) {
   }
 
   return (
-    <div className="RuneCounter">
+    <div className={styles.RuneCounter}>
       {runeImages}
     </div>
   );

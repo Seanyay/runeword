@@ -1,5 +1,5 @@
 import React from 'react';
-import './RuneWord.css';
+import styles from './sass/RuneWord.module.sass';
 import { IRune, IRuneWord, SelectedRune } from './interfaces';
 import { runesById } from './constants/runes';
 import { Runes } from './enums/Runes';
@@ -35,15 +35,15 @@ function RuneWord(props: IProps) {
   });
 
   return (
-    <div className="RuneWord">
-      <div className="Clvl">{`CLVL ${level}`}</div>
-      <header className="Header">{name}</header>
-      <div className="Type">
-        <span className="Sockets">({runes.length}) Socket</span> {itemTypes.join(', ')}
+    <div className={styles.RuneWord}>
+      <div className={styles.Clvl}>{`CLVL ${level}`}</div>
+      <header className={styles.Header}>{name}</header>
+      <div className={styles.Type}>
+        <span className={styles.Sockets}>({runes.length}) Socket</span> {itemTypes.join(', ')}
       </div>
-      <div className="Word">{wordItems}</div>
-      <div className="Body">{attributes.map((a, i) => <p key={i}>{a}</p>)}</div>
-      {ladderOnly && <div className="Ladder">Ladder only</div>}
+      <div className={styles.Word}>{wordItems}</div>
+      <div className={styles.Body}>{attributes.map((a, i) => <p key={i}>{a}</p>)}</div>
+      {ladderOnly && <div className={styles.Ladder}>Ladder only</div>}
     </div>
   );
 }

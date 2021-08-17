@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './sass/App.module.sass';
 import sortOptions from './constants/filterOptions';
 import { RuneWordSort } from './enums/RuneWordSort';
 import { ISelectedRunes } from './interfaces';
@@ -34,8 +34,8 @@ function FilterBar(props: IProps) {
 
 
   return (
-    <div className="FilterBar">
-      {selectedRunes.size > 0 && <div className="Reset" onClick={reset} />}
+    <div className={styles.FilterBar}>
+      {selectedRunes.size > 0 && <div className={styles.Reset} onClick={reset} />}
       {selectedRunes.size > 0 && <input type="text" value={filterSearch} onChange={handleSetFilterSearch} placeholder="Filter by runeword name" />}
       {selectedRunes.size > 0 && <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select>}
     </div>

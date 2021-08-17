@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './sass/App.module.sass';
 import { Runes } from './enums/Runes';
 import { IRune, SelectedRune } from './interfaces';
 
@@ -38,13 +38,13 @@ function Rune(props: IProps) {
   }
 
   return (
-    <div className={`Rune ${isHighlighted ? "IsHighlighted" : ""}`} onClick={() => selectRune()} onContextMenu={(e) => {
+    <div className={`${styles.Rune} ${isHighlighted ? styles.IsHighlighted : ""}`} onClick={() => selectRune()} onContextMenu={(e) => {
       e.preventDefault();
       selectRune(-1);
     }}>
       <img src={image} alt={`${name} rune`} />
       <span>{name}</span>
-      <input className="RuneInput" type="text" onClick={e => e.stopPropagation()} onChange={handleInputChange} value={selectedRunes.get(id) ?? 0} />
+      <input className={styles.RuneInput} type="text" onClick={e => e.stopPropagation()} onChange={handleInputChange} value={selectedRunes.get(id) ?? 0} />
     </div>
   );
 }
