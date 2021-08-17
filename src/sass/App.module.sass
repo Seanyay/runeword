@@ -1,3 +1,5 @@
+@import '_variables'
+  
 @font-face
   font-family: 'ExocetHeavy'
   src: url('../assets/fonts/ExocetHeavy.woff2') format('woff2')
@@ -40,8 +42,7 @@ input[type="text"]
   flex-direction: row
   padding: 20px
 
-@media(max-width: 745px)
-  .Panes
+  @media(max-width: $mobileWidth)
     flex-direction: column
 
 
@@ -63,8 +64,7 @@ input[type="text"]
   flex-basis: 50%
   align-content: flex-start
 
-@media(max-width: 745px)
-  .RuneCounter
+  @media(max-width: $mobileWidth)
     max-width: none
 
 
@@ -112,14 +112,12 @@ input[type="text"]
       margin: 4px 4px
       flex-grow: 1
 
-@media(max-width: 745px)
-  .RuneWords .FilterBar
-    margin-top: 15px
-    flex-wrap: wrap
+    @media(max-width: $mobileWidth)
+      margin-top: 15px
+      flex-wrap: wrap
 
-  .RuneWords .FilterBar > *
-    margin: 4px 4px
-
+      & > *
+        margin: 4px 4px
   
 .RuneWordsContent
   display: flex
