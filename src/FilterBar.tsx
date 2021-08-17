@@ -35,7 +35,7 @@ function FilterBar(props: IProps) {
 
   return (
     <div className="FilterBar">
-      {selectedRunes.size > 0 && <button className="Reset" onClick={reset} />}
+      {selectedRunes.size > 0 && <div className="Reset" onClick={reset} />}
       {selectedRunes.size > 0 && <input type="text" value={filterSearch} onChange={handleSetFilterSearch} placeholder="Filter by runeword name" />}
       {selectedRunes.size > 0 && <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select>}
     </div>
