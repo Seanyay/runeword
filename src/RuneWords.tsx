@@ -28,7 +28,7 @@ function RuneWords(props: IProps) {
 
   return (
     <div className={styles.RuneWords}>
-      <FilterBar filterSearch={filterSearch} setFilterSearch={setFilterSearch} setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />
+      {selectedRunes.size > 0 && <FilterBar filterSearch={filterSearch} setFilterSearch={setFilterSearch} setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />}
       <div className={styles.RuneWordsContent}>
         {runeWordMatchItems.length ? runeWordMatchItems : <div className={styles.NoResults}>Select runes to see suggested rune words</div>}
       </div>

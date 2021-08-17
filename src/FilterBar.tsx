@@ -13,7 +13,7 @@ interface IProps extends ISelectedRunes {
 }
 
 function FilterBar(props: IProps) {
-  const { setSelectedRunes, selectedRunes, sortMethod, setRuneWordSort, setFilterSearch, filterSearch } = props;
+  const { setSelectedRunes, sortMethod, setRuneWordSort, setFilterSearch, filterSearch } = props;
   const sortOptionItems: JSX.Element[] = Array.from(sortOptions, fo => {
     return <option key={fo.value} value={fo.value}>{fo.label}</option>;
   });
@@ -35,9 +35,9 @@ function FilterBar(props: IProps) {
 
   return (
     <div className={styles.FilterBar}>
-      {selectedRunes.size > 0 && <div className={styles.Reset} onClick={reset} />}
-      {selectedRunes.size > 0 && <input type="text" value={filterSearch} onChange={handleSetFilterSearch} placeholder="Filter by runeword name" />}
-      {selectedRunes.size > 0 && <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select>}
+      <div className={styles.Reset} onClick={reset} />
+      <input type="text" value={filterSearch} onChange={handleSetFilterSearch} placeholder="Filter by runeword name" />
+      <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select>
     </div>
   );
 }
