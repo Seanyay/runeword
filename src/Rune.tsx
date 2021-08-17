@@ -44,7 +44,7 @@ function Rune(props: IProps) {
     }}>
       <img src={image} alt={`${name} rune`} />
       <span>{name}</span>
-      <input className={styles.RuneInput} type="text" onClick={e => e.stopPropagation()} onChange={handleInputChange} value={selectedRunes.get(id) ?? 0} />
+      <input className={styles.RuneInput} type="text" onClick={e => e.stopPropagation()} onContextMenu={e => e.stopPropagation()} onChange={handleInputChange} value={selectedRunes.get(id) ?? 0} />
     </div>
   );
 }
