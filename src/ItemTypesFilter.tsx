@@ -44,6 +44,7 @@ function ItemTypesFilter(props: IProps) {
   // Default everything to selected
   useEffect(() => {
     handleSelectAll();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   itemTypesById.forEach(itemType => {
