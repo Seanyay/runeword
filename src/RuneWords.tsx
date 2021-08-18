@@ -14,10 +14,12 @@ interface IProps extends ISelectedRunes {
   setRuneWordSort: (method: RuneWordSort) => void;
   filterSearch: string;
   setFilterSearch: React.Dispatch<React.SetStateAction<string>>;
+  socketFilter: string;
+  setSocketFilter: React.Dispatch<React.SetStateAction<string>>;
 }
 
 function RuneWords(props: IProps) {
-  const { runeWordMatchesByName, selectedRunes, setSelectedRunes, setHighlightedRune, sortMethod, setRuneWordSort, filterSearch, setFilterSearch } = props;
+  const { runeWordMatchesByName, selectedRunes, setSelectedRunes, setHighlightedRune, sortMethod, setRuneWordSort, filterSearch, setFilterSearch, setSocketFilter, socketFilter } = props;
   const runeWordMatchItems: JSX.Element[] = [];
 
   runeWordMatchesByName.forEach(rw => {
@@ -28,7 +30,7 @@ function RuneWords(props: IProps) {
 
   return (
     <div className={styles.RuneWords}>
-      {selectedRunes.size > 0 && <FilterBar filterSearch={filterSearch} setFilterSearch={setFilterSearch} setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />}
+      {selectedRunes.size > 0 && <FilterBar socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />}
       <div className={styles.RuneWordsContent}>
         {runeWordMatchItems.length ? runeWordMatchItems : <div className={styles.NoResults}>Select runes to see suggested rune words</div>}
       </div>
