@@ -1,35 +1,36 @@
-import { ItemTypes } from "../enums/ItemTypes";
+import { ItemTypes, Slots } from "../enums/ItemTypes";
+import { IItemType } from "../interfaces";
 
-const itemTypeNames: Map<ItemTypes, string> = new Map([
-  [ItemTypes.WEAPONS, "Weapons"],
-  [ItemTypes.MELEE_WEAPONS, "Melee Weapons"],
-  [ItemTypes.AXES, "Axes"],
-  [ItemTypes.MACES, "Maces"],
-  [ItemTypes.SWORDS, "Swords"],
-  [ItemTypes.STAVES, "Staves"],
-  [ItemTypes.CLUBS, "Clubs"],
-  [ItemTypes.POLEARMS, "Polearms"],
-  [ItemTypes.SCEPTERS, "Scepters"],
-  [ItemTypes.HAMMERS, "Hammers"],
-  [ItemTypes.MISSILE_WEAPONS, "Missile Weapons"],
-  [ItemTypes.CROSSBOWS, "Crossbows"],
-  [ItemTypes.BOWS, "Bows"],
-  [ItemTypes.JAVELINS, "Javelins"],
-  [ItemTypes.DAGGERS, "Daggers"],
-  [ItemTypes.SPEARS, "Spears"],
-  [ItemTypes.THROWING, "Throwing"],
-  [ItemTypes.WANDS, "Wands"],
-  [ItemTypes.AMAZON_WEAPONS, "Amazon Weapons"],
-  [ItemTypes.SORCERESS_ORBS, "Sorceress Orbs"],
-  [ItemTypes.ASSASSIN_KATARS, "Assassin Katars"],
+const itemTypesById: Map<ItemTypes, IItemType> = new Map([
+  // Weapon parent types
+  [ItemTypes.WEAPONS, { name: "Weapons", slot: Slots.WEAPON }],
+  [ItemTypes.MELEE_WEAPONS, { name: "Melee Weapons", parentTypes: new Set([ItemTypes.WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.MISSILE_WEAPONS, { name: "Missile Weapons", parentTypes: new Set([ItemTypes.WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.AMAZON_WEAPONS, { name: "Amazon Weapons", parentTypes: new Set([ItemTypes.WEAPONS]), slot: Slots.WEAPON }],
+  // Weapon sub types
+  [ItemTypes.AXES, { name: "Axes", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.MACES, { name: "Maces", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.SWORDS, { name: "Swords", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.STAVES, { name: "Staves", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.DAGGERS, { name: "Daggers", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.SPEARS, { name: "Spears", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.CLUBS, { name: "Clubs", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.POLEARMS, { name: "Polearms", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.SCEPTERS, { name: "Scepters", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.HAMMERS, { name: "Hammers", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.WANDS, { name: "Wands", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.SORCERESS_ORBS, { name: "Sorceress Orbs", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.ASSASSIN_KATARS, { name: "Assassin Katars", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.CROSSBOWS, { name: "Crossbows", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MISSILE_WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.BOWS, { name: "Bows", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MISSILE_WEAPONS]), slot: Slots.WEAPON }],
   // Armor types
-  [ItemTypes.ARMOR, "Armor"],
-  [ItemTypes.SHIELDS, "Shields"],
-  [ItemTypes.HELMS, "Helms"],
-  [ItemTypes.PALADIN_SHIELDS, "Paladin Shields"],
-  [ItemTypes.NECROMANCER_SHRUNKEN_HEADS, "Necromancer Shrunken Heads"],
-  [ItemTypes.BARBARIAN_HELMS, "Barbarian Helms"],
-  [ItemTypes.DRUID_PELTS, "Druid Pelts"],
+  [ItemTypes.ARMOR, { name: "Armor", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.ARMOR }],
+  [ItemTypes.SHIELDS, { name: "Shields", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.SHIELD }],
+  [ItemTypes.HELMS, { name: "Helms", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.HELM }],
+  [ItemTypes.PALADIN_SHIELDS, { name: "Paladin Shields", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.SHIELD }],
+  [ItemTypes.NECROMANCER_SHRUNKEN_HEADS, { name: "Necromancer Shrunken Heads", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.SHIELD }],
+  [ItemTypes.BARBARIAN_HELMS, { name: "Barbarian Helms", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.HELM }],
+  [ItemTypes.DRUID_PELTS, { name: "Druid Pelts", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.HELM }],
 ]);
 
-export { itemTypeNames };
+export { itemTypesById as itemTypeNames };

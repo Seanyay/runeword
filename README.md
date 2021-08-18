@@ -16,6 +16,7 @@ Use the runeword calculator to plug in which runes you have, so you can see what
 ## In the pipeline
 - Filter by item type
 - Runeword search function
+- Runeword stats on hover
 
 ## Future features and enhancements
 - Better mobile design & support

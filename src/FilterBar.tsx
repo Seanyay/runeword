@@ -35,7 +35,7 @@ function FilterBar(props: IProps) {
 
   const itemTypeNameItems: JSX.Element[] = [];
   itemTypeNames.forEach(itemType => {
-    itemTypeNameItems.push(<div key={itemType}>{itemType}</div>);
+    itemTypeNameItems.push(<div key={itemType.name}>{itemType.name}</div>);
   })
 
   return (
