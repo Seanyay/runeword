@@ -121,7 +121,6 @@ function App() {
     setSelectedRunes(runes);
     setItem('runes', convertMapToArray<Runes, number>(runes));
   }
-
   
   return (
     <div className={styles.App}>

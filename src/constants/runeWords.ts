@@ -96,6 +96,22 @@ const runeWords: IRuneWord[] = [
     ladderOnly: false
   },
   {
+    name: RuneWords.LIONHEART,
+    runes: [HEL, LUM, FAL],
+    itemTypes: [ArmorTypes.ARMOR],
+    attributes: ["+20% Enhanced Damage", "+25 To Strength", "+15 To Dexterity", "+20 To Vitality", "+10 To Energy", "+50 To Life", "All Resistances +30", "Requirements -15%"],
+    level: 41,
+    ladderOnly: false
+  },
+  {
+    name: RuneWords.LORE,
+    runes: [ORT, SOL],
+    itemTypes: [ArmorTypes.HELMS],
+    attributes: ["+1 to All Skills", "+10 to Energy", "Lightning Resist +30%", "Damage Reduced by 7", "+2 to Mana after each Kill", "+2 to Light Radius"],
+    level: 27,
+    ladderOnly: false
+  },
+  {
     name: RuneWords.MALICE,
     runes: [ITH, EL, ETH],
     itemTypes: [WeaponTypes.MELEE_WEAPONS],
@@ -566,6 +582,14 @@ const runeWords: IRuneWord[] = [
     attributes: ["20% Chance To Cast Level 16 Tornado On Striking", "16% Chance To Cast Level 21 Frozen Orb On Attack", "20% Bonus To Attack Rating", "Adds 160-250 Magic Damage", "Adds 60-180 Fire Damage", "+5-10 To All Attributes (varies)", "+10 To Dexterity", "38% Damage Taken Goes To Mana", "75% Extra Gold From Monsters", "Level 15 Iron Maiden (40 Charges)", "Requirements -20%"],
     level: 53,
     ladderOnly: true
+  },
+  {
+    name: RuneWords.SPIRIT,
+    runes: [TAL, THUL, ORT, AMN],
+    itemTypes: [WeaponTypes.SWORDS, ArmorTypes.SHIELDS],
+    attributes: ["BOTH:", "+2 To All Skills", "+25-35% Faster Cast Rate (varies)", "+55% Faster Hit Recovery", "+250 Defense Vs. Missile", "+22 To Vitality", "+89-112 To Mana (varies)", "+3-8 Magic Absorb (varies)", "SHIELDS:", "Cold Resist +35%", "Lightning Resist +35%", "Poison Resist +35%", "Attacker Takes Damage of 14", "SWORDS:", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage (3 Sec, Normal)", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit"],
+    level: 25,
+    ladderOnly: false
   },
   {
     name: RuneWords.VOICE_OF_REASON,
