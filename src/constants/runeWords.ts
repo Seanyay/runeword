@@ -98,7 +98,7 @@ const runeWords: IRuneWord[] = [
   {
     name: RuneWords.LIONHEART,
     runes: [HEL, LUM, FAL],
-    itemTypes: [ArmorTypes.ARMOR],
+    itemTypes: [ItemTypes.ARMOR],
     attributes: ["+20% Enhanced Damage", "+25 To Strength", "+15 To Dexterity", "+20 To Vitality", "+10 To Energy", "+50 To Life", "All Resistances +30", "Requirements -15%"],
     level: 41,
     ladderOnly: false
@@ -106,7 +106,7 @@ const runeWords: IRuneWord[] = [
   {
     name: RuneWords.LORE,
     runes: [ORT, SOL],
-    itemTypes: [ArmorTypes.HELMS],
+    itemTypes: [ItemTypes.HELMS],
     attributes: ["+1 to All Skills", "+10 to Energy", "Lightning Resist +30%", "Damage Reduced by 7", "+2 to Mana after each Kill", "+2 to Light Radius"],
     level: 27,
     ladderOnly: false
@@ -586,7 +586,7 @@ const runeWords: IRuneWord[] = [
   {
     name: RuneWords.SPIRIT,
     runes: [TAL, THUL, ORT, AMN],
-    itemTypes: [WeaponTypes.SWORDS, ArmorTypes.SHIELDS],
+    itemTypes: [ItemTypes.SWORDS, ItemTypes.SHIELDS],
     attributes: ["BOTH:", "+2 To All Skills", "+25-35% Faster Cast Rate (varies)", "+55% Faster Hit Recovery", "+250 Defense Vs. Missile", "+22 To Vitality", "+89-112 To Mana (varies)", "+3-8 Magic Absorb (varies)", "SHIELDS:", "Cold Resist +35%", "Lightning Resist +35%", "Poison Resist +35%", "Attacker Takes Damage of 14", "SWORDS:", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage (3 Sec, Normal)", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit"],
     level: 25,
     ladderOnly: false
