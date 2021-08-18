@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './sass/ItemTypesFilter.module.sass'
 import { itemTypesById } from './constants/itemTypes';
 import { ItemTypes, Slots } from './enums/ItemTypes';
 
+
 function ItemTypesFilter() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const weaponItems: JSX.Element[] = [];
   const armorItems: JSX.Element[] = [];
+  const itemTypeButtonClass = `${isOpen ? styles.IsOpen : ''}`;
 
   itemTypesById.forEach(itemType => {
     const arr = itemType.slot === Slots.WEAPON ? weaponItems : armorItems;
@@ -41,13 +45,18 @@ function ItemTypesFilter() {
     );
 
     arr.push(rowItem);
-  })
+  });
 
   return (
-    <div className={styles.ItemTypesFilter}>
+    <div className={`${styles.ItemTypesFilter} ${itemTypeButtonClass}`}>
       <header className={styles.Header}>
-        Item types
-        <button className={styles.SelectAll}>Select All</button>
+        <button onClick={() => setIsOpen(!isOpen)} className={styles.OpenItemType}>Filter by item type</button>
+        {isOpen && (
+          <div className={styles.SelectButtons}>
+            <button className={styles.SelectAll}>Select All</button>
+            <button className={styles.DeselectAll}>Deselect All</button>
+          </div>
+        )}
       </header>
       <div className={styles.Content}>
         <fieldset className={styles.Weapons}>{weaponItems}</fieldset>

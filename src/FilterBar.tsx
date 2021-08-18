@@ -37,7 +37,7 @@ function FilterBar(props: IProps) {
     <div className={styles.FilterBar}>
       <div className={styles.Reset} onClick={reset} />
       <input type="text" value={filterSearch} onChange={handleSetFilterSearch} placeholder="Filter by runeword name" />
-      <div>Sort <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select></div>
+      <div className={styles.Sort}>Sort <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select></div>
       <div className={styles.ItemTypes}>
         <ItemTypesFilter />
       </div>
