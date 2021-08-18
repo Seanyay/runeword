@@ -38,3 +38,9 @@ export interface ISelectOption<T> {
   label: string;
   value: T;
 }
+
+export interface IItemType {
+  name: string;
+  parentTypes?: Set<ItemTypes>;
+  slot: Slots;
+}
