@@ -1,9 +1,10 @@
 import React from 'react';
-import styles from './sass/App.module.sass';
+import styles from './sass/FilterBar.module.sass';
 import sortOptions from './constants/filterOptions';
 import { RuneWordSort } from './enums/RuneWordSort';
 import { ISelectedRunes } from './interfaces';
 import { removeItem } from './utils';
+import { itemTypeNames } from './constants/itemTypes';
 
 interface IProps extends ISelectedRunes {
   setRuneWordSort: (method: RuneWordSort) => void;
@@ -32,12 +33,19 @@ function FilterBar(props: IProps) {
     removeItem('runes');
   }
 
+  const itemTypeNameItems: JSX.Element[] = [];
+  itemTypeNames.forEach(itemType => {
+    itemTypeNameItems.push(<div key={itemType}>{itemType}</div>);
+  })
 
   return (
     <div className={styles.FilterBar}>
       <div className={styles.Reset} onClick={reset} />
       <input type="text" value={filterSearch} onChange={handleSetFilterSearch} placeholder="Filter by runeword name" />
-      <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select>
+      <div>Sort <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select></div>
+      <div className={styles.ItemTypes}>
+        {itemTypeNameItems}
+      </div>
     </div>
   );
 }
