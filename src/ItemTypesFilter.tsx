@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './sass/ItemTypesFilter.module.sass'
 import { itemTypesById } from './constants/itemTypes';
 import { ItemTypes, Slots } from './enums/ItemTypes';
@@ -40,6 +40,11 @@ function ItemTypesFilter(props: IProps) {
   function handleDeselectAll() {
     setItemTypeFilters(new Set());
   }
+
+  // Default everything to selected
+  useEffect(() => {
+    handleSelectAll();
+  }, []);
 
   itemTypesById.forEach(itemType => {
     const arr = itemType.slot === Slots.WEAPON ? weaponItems : armorItems;

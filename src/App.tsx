@@ -8,6 +8,7 @@ import RuneCounter from './RuneCounter';
 import RuneWords from './RuneWords';
 import { convertArrayToMap, convertMapToArray, convertSetToArray, getItem, setItem } from './utils';
 import { ItemTypes } from './enums/ItemTypes';
+import { itemTypesById } from './constants/itemTypes';
 
 interface IHaveRune {
   runeWord: IRuneWord;
@@ -44,10 +45,18 @@ function App() {
       }
 
       // Apply an item type filter
-      if (itemTypeFilters.size > 0) {
-        for (const itemType of itemTypes) {
-          if (!itemTypeFilters.has(itemType)) {
-            continue runewordLoop;
+      for (const itemType of itemTypes) {
+        if (!itemTypeFilters.has(itemType)) {
+          continue runewordLoop;
+        }
+        else if (itemTypeFilters.has(itemType)) {
+          const parentTypes = itemTypesById.get(itemType)?.parentTypes;
+          if (parentTypes?.size) {
+            for (const parentType of parentTypes.entries()) {
+              if (!itemTypeFilters.has(parentType[0])) {
+                continue runewordLoop;
+              }
+            }
           }
         }
       }

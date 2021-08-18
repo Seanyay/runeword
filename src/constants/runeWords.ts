@@ -665,8 +665,16 @@ const runeWords: IRuneWord[] = [
   }
 ];
 
+const runewordsByItemType: Map<ItemTypes, Set<RuneWords>> = new Map();
 const runeWordsById: Map<RuneWords, IRuneWord> = new Map();
 runeWords.forEach(rw => {
   runeWordsById.set(rw.name, rw);
+
+  rw.itemTypes.forEach(itemType => {
+    const itSet: Set<RuneWords> = new Set(runewordsByItemType.get(itemType));
+    itSet.add(rw.name);
+    runewordsByItemType.set(itemType, itSet);
+  });
 });
-export { runeWordsById };
+
+export { runeWordsById, runewordsByItemType };
