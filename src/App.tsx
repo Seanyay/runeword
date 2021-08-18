@@ -36,10 +36,20 @@ function App() {
 
   // Find the runeword matches
   if (selectedRunes.size) {
-    for (const runeWord of runeWordsById.values()) {
+    runewordLoop: for (const runeWord of runeWordsById.values()) {
+      const { runes, itemTypes } = runeWord;
       // Apply a socket filter
-      if (socketFilter && +socketFilter !== runeWord.runes.length) {
+      if (socketFilter && +socketFilter !== runes.length) {
         continue;
+      }
+
+      // Apply an item type filter
+      if (itemTypeFilters.size > 0) {
+        for (const itemType of itemTypes) {
+          if (!itemTypeFilters.has(itemType)) {
+            continue runewordLoop;
+          }
+        }
       }
       
       for (const rune of runeWord.runes) {

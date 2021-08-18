@@ -40,6 +40,7 @@ export interface ISelectOption<T> {
 }
 
 export interface IItemType {
+  id: ItemTypes;
   name: string;
   parentTypes?: Set<ItemTypes>;
   slot: Slots;

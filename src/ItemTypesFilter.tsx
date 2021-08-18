@@ -2,26 +2,48 @@ import React, { useState } from 'react';
 import styles from './sass/ItemTypesFilter.module.sass'
 import { itemTypesById } from './constants/itemTypes';
 import { ItemTypes, Slots } from './enums/ItemTypes';
+import { IItemType } from './interfaces';
 
 interface IProps {
   itemTypeFilters: Set<ItemTypes>;
-  setItemTypeFilters: React.Dispatch<React.SetStateAction<ItemTypes>>;
+  setItemTypeFilters: React.Dispatch<React.SetStateAction<Set<ItemTypes>>>;
 }
 
 function ItemTypesFilter(props: IProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { itemTypeFilters, setItemTypeFilters } = props;
 
   const weaponItems: JSX.Element[] = [];
   const armorItems: JSX.Element[] = [];
   const itemTypeButtonClass = `${isOpen ? styles.IsOpen : ''}`;
 
-  function handleItemFilterChange(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log('change');
+  function handleItemFilterChange(itemType: IItemType) {
+    const { id } = itemType;
+    const filters = new Set(itemTypeFilters);
+    if (filters.has(id)) {
+      filters.delete(id);
+    }
+    else {
+      filters.add(id);
+    }
+    setItemTypeFilters(filters);
+  }
+
+  function handleSelectAll() {
+    const filters: Set<ItemTypes> = new Set();
+    itemTypesById.forEach(itemType => { 
+      filters.add(itemType.id);
+    });
+    setItemTypeFilters(filters);
+  }
+
+  function handleDeselectAll() {
+    setItemTypeFilters(new Set());
   }
 
   itemTypesById.forEach(itemType => {
     const arr = itemType.slot === Slots.WEAPON ? weaponItems : armorItems;
-    const { name, parentTypes } = itemType;
+    const { name, parentTypes, id } = itemType;
     const itemTypeId = `itemType_${name}`;
     let rowClass = styles.Child;
     let rowItem: JSX.Element;
@@ -42,12 +64,12 @@ function ItemTypesFilter(props: IProps) {
 
     rowItem = isParent1 ? (
       <legend key={name} className={`${styles.Row} ${rowClass}`}>
-        <input id={itemTypeId} type="checkbox" onChange={handleItemFilterChange} />
+        <input id={itemTypeId} type="checkbox" checked={itemTypeFilters.has(id)} onChange={() => handleItemFilterChange(itemType)} />
         <label htmlFor={itemTypeId}>{name}</label>
       </legend>
     ) : (
       <div key={name} className={`${styles.Row} ${rowClass}`}>
-        <input id={itemTypeId} type="checkbox" />
+        <input id={itemTypeId} type="checkbox" checked={itemTypeFilters.has(id)} onChange={() => handleItemFilterChange(itemType)} />
         <label htmlFor={itemTypeId}>{name}</label>
       </div>
     );
@@ -61,8 +83,8 @@ function ItemTypesFilter(props: IProps) {
         <button onClick={() => setIsOpen(!isOpen)} className={styles.OpenItemType}>Filter by item type</button>
         {isOpen && (
           <div className={styles.SelectButtons}>
-            <button className={styles.SelectBtn}>Select All</button>
-            <button className={styles.SelectBtn}>Deselect All</button>
+            <button className={styles.SelectBtn} onClick={handleSelectAll}>Select All</button>
+            <button className={styles.SelectBtn} onClick={handleDeselectAll}>Deselect All</button>
           </div>
         )}
       </header>
