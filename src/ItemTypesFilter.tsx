@@ -3,13 +3,21 @@ import styles from './sass/ItemTypesFilter.module.sass'
 import { itemTypesById } from './constants/itemTypes';
 import { ItemTypes, Slots } from './enums/ItemTypes';
 
+interface IProps {
+  itemTypeFilters: Set<ItemTypes>;
+  setItemTypeFilters: React.Dispatch<React.SetStateAction<ItemTypes>>;
+}
 
-function ItemTypesFilter() {
+function ItemTypesFilter(props: IProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const weaponItems: JSX.Element[] = [];
   const armorItems: JSX.Element[] = [];
   const itemTypeButtonClass = `${isOpen ? styles.IsOpen : ''}`;
+
+  function handleItemFilterChange(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log('change');
+  }
 
   itemTypesById.forEach(itemType => {
     const arr = itemType.slot === Slots.WEAPON ? weaponItems : armorItems;
@@ -34,7 +42,7 @@ function ItemTypesFilter() {
 
     rowItem = isParent1 ? (
       <legend key={name} className={`${styles.Row} ${rowClass}`}>
-        <input id={itemTypeId} type="checkbox" />
+        <input id={itemTypeId} type="checkbox" onChange={handleItemFilterChange} />
         <label htmlFor={itemTypeId}>{name}</label>
       </legend>
     ) : (
@@ -53,8 +61,8 @@ function ItemTypesFilter() {
         <button onClick={() => setIsOpen(!isOpen)} className={styles.OpenItemType}>Filter by item type</button>
         {isOpen && (
           <div className={styles.SelectButtons}>
-            <button className={styles.SelectAll}>Select All</button>
-            <button className={styles.DeselectAll}>Deselect All</button>
+            <button className={styles.SelectBtn}>Select All</button>
+            <button className={styles.SelectBtn}>Deselect All</button>
           </div>
         )}
       </header>

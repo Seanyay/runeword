@@ -7,6 +7,7 @@ import { IRuneWord, SelectedRune } from './interfaces';
 import RuneCounter from './RuneCounter';
 import RuneWords from './RuneWords';
 import { convertArrayToMap, convertMapToArray, convertSetToArray, getItem, setItem } from './utils';
+import { ItemTypes } from './enums/ItemTypes';
 
 interface IHaveRune {
   runeWord: IRuneWord;
@@ -20,6 +21,7 @@ function App() {
   const [sortMethod, setSortMethod] = useState<RuneWordSort>(RuneWordSort.HAVE_RUNES);
   const [filterSearch, setFilterSearch] = useState('');
   const [socketFilter, setSocketFilter] = useState('');
+  const [itemTypeFilters, setItemTypeFilters] = useState<Set<ItemTypes>>(new Set());
 
   let runeWordMatchesByName: Set<IRuneWord> = new Set();
 
@@ -132,7 +134,7 @@ function App() {
     <div className={styles.App}>
       <div className={styles.Panes}>
         <RuneCounter selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
-        <RuneWords socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
+        <RuneWords itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
       <footer className={styles.Footer}>Built by <a href="https://github.com/andyparisi/runeword" target="_blank" rel="noreferrer">Andy Parisi</a></footer>
     </div>

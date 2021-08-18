@@ -5,6 +5,7 @@ import { RuneWordSort } from './enums/RuneWordSort';
 import { ISelectedRunes } from './interfaces';
 import { removeItem } from './utils';
 import ItemTypesFilter from './ItemTypesFilter';
+import { ItemTypes } from './enums/ItemTypes';
 
 interface IProps extends ISelectedRunes {
   setRuneWordSort: (method: RuneWordSort) => void;
@@ -13,10 +14,13 @@ interface IProps extends ISelectedRunes {
   setFilterSearch: React.Dispatch<React.SetStateAction<string>>;
   socketFilter: string;
   setSocketFilter: React.Dispatch<React.SetStateAction<string>>;
+  itemTypeFilters: Set<ItemTypes>;
+  setItemTypeFilters: React.Dispatch<React.SetStateAction<Set<ItemTypes>>>;
 }
 
 function FilterBar(props: IProps) {
-  const { setSelectedRunes, sortMethod, setRuneWordSort, setFilterSearch, filterSearch, socketFilter, setSocketFilter } = props;
+  const { setSelectedRunes, sortMethod, setRuneWordSort, setFilterSearch, filterSearch, socketFilter, setSocketFilter, itemTypeFilters, setItemTypeFilters } = props;
+
   const sortOptionItems: JSX.Element[] = Array.from(sortOptions, fo => {
     return <option key={fo.value} value={fo.value}>{fo.label}</option>;
   });
@@ -49,7 +53,7 @@ function FilterBar(props: IProps) {
       <div className={styles.Sockets}>Sockets <select value={socketFilter} onChange={handleSetSocketFilterChange}>{socketFilterItems}</select></div>
       <div className={styles.Sort}>Sort <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select></div>
       <div className={styles.ItemTypes}>
-        <ItemTypesFilter />
+        <ItemTypesFilter itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} />
       </div>
     </div>
   );
