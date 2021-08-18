@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { ArmorTypes, Slots, WeaponTypes } from "./enums/ItemTypes";
+import { Slots, ItemTypes } from "./enums/ItemTypes";
 import { Runes } from "./enums/Runes";
 import { RuneWords } from "./enums/RuneWords";
 
@@ -21,7 +21,7 @@ export interface IRune {
 export interface IRuneWord {
   name: RuneWords;
   runes: Runes[];
-  itemTypes: Array<ArmorTypes | WeaponTypes>;
+  itemTypes: Array<ItemTypes>;
   attributes: NonNullable<string[]>;
   level: number;
   ladderOnly: boolean;
