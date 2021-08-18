@@ -4,10 +4,38 @@
 
 .Content
   display: flex
+  flex-direction: column
+
+.Weapons, .Armor
+  flex-grow: 1
+  display: flex
   flex-direction: row
+  flex-wrap: wrap
 
-.Weapons
-  flex-grow: 1
+.Row
+  text-align: left
+  padding-top: 3px
+  padding-bottom: 3px
+  vertical-align: middle
 
-.Armor
-  flex-grow: 1
+  input, label
+    vertical-align: middle
+
+  label
+    padding-left: 3px
+
+.Parent1
+  padding-left: 0
+
+.Parent2
+  padding-left: 7px
+  width: 100%
+
+.Child
+  padding-left: 18px
+
+.Header
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  font-size: 14px

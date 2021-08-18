@@ -4,7 +4,7 @@ import { IRune, IRuneWord, SelectedRune } from './interfaces';
 import { runesById } from './constants/runes';
 import { Runes } from './enums/Runes';
 import WordPart from './WordPart';
-import { itemTypeNames } from './constants/itemTypes';
+import { itemTypesById } from './constants/itemTypes';
 
 interface IProps {
   runeWord: IRuneWord;
@@ -40,7 +40,7 @@ function RuneWord(props: IProps) {
       <div className={styles.Clvl}>{`CLVL ${level}`}</div>
       <header className={styles.Header}>{name}</header>
       <div className={styles.Type}>
-        <span className={styles.Sockets}>({runes.length}) Socket</span> {itemTypes.map(i => itemTypeNames.get(i)?.name).join(', ')}
+        <span className={styles.Sockets}>({runes.length}) Socket</span> {itemTypes.map(i => itemTypesById.get(i)?.name).join(', ')}
       </div>
       <div className={styles.Word}>{wordItems}</div>
       <div className={styles.Body}>{attributes.map((a, i) => <p key={i}>{a}</p>)}</div>
