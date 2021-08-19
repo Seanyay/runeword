@@ -61,6 +61,9 @@ button
   color: #ebebeb
   font-weight: bold
 
+  @media(max-width: $mobileWidth)
+    margin-top: 15%
+
 .RuneCounter
   display: flex
   flex-direction: column
@@ -82,6 +85,7 @@ button
   color: $magic
   padding: 15px 0
   text-align: left
+  align-self: flex-start
 
 .Rune
   width: 50px
@@ -137,3 +141,10 @@ button
 
   &, & a
     color: #594636
+
+.ResetFilters
+  color: $magic
+  display: block
+  text-align: center
+  width: 100%
+  padding-top: 10px

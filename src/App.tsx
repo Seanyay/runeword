@@ -23,6 +23,8 @@ function App() {
   const [filterSearch, setFilterSearch] = useState('');
   const [socketFilter, setSocketFilter] = useState('');
   const [itemTypeFilters, setItemTypeFilters] = useState<Set<ItemTypes>>(new Set());
+  const [onlyFullMatches, setOnlyFullMatches] = useState(false);
+  const filtersAreApplied = filterSearch.length > 0 || socketFilter.length > 0 || itemTypeFilters.size !== itemTypesById.size || onlyFullMatches;
 
   let runeWordMatchesByName: Set<IRuneWord> = new Set();
 
@@ -49,6 +51,7 @@ function App() {
         if (!itemTypeFilters.has(itemType)) {
           continue runewordLoop;
         }
+        // If one of the parents isn't selected, skip the runeword
         else if (itemTypeFilters.has(itemType)) {
           const parentTypes = itemTypesById.get(itemType)?.parentTypes;
           if (parentTypes?.size) {
@@ -61,6 +64,7 @@ function App() {
         }
       }
       
+      // Determine with runewords to show
       for (const rune of runeWord.runes) {
         const numOfRune = selectedRunes.get(rune);
         if (numOfRune != null && numOfRune && !runeWordMatchesByName.has(runeWord)) {
@@ -69,39 +73,47 @@ function App() {
       }
     }
 
+    // Perform the default sort
     runeWordMatchesByName = applyRuneWordSort(sortMethod);
   }
 
 
   function applyRuneWordSort(sort: RuneWordSort) {
     let o: IRuneWord[] = [];
-    // Primary sort by how many runes you have, secondary sort by clevel
-    if (sort === RuneWordSort.HAVE_RUNES) {
-      const haveRunes: IHaveRune[] = [];
+    const haveRunes: IHaveRune[] = [];
 
-      for (const [runeWord] of runeWordMatchesByName.entries()) {
-        const { runes } = runeWord;
-        let haveRequiredRunes = 0;
+    // Figure out how much of a runeword we own
+    for (const [runeWord] of runeWordMatchesByName.entries()) {
+      const { runes } = runeWord;
+      let haveRequiredRunes = 0;
 
-        // check to see how much of each rune we have in the runeword
-        runes.forEach(rune => {
-          const neededOfRune = runes.filter(r => r === rune).length;
-          const s = selectedRunes.get(rune);
-          if (s != null && s / neededOfRune > 0) {
-            const ratio = s / neededOfRune;
-            haveRequiredRunes = haveRequiredRunes + (ratio < 1 ? ratio : 1);
-          }
-        });
-
-        const haveRatio = haveRequiredRunes / runes.length;
-        const ratio: IHaveRune = {
-          runeWord,
-          ratio: haveRatio
+      // check to see how much of each rune we have in the runeword
+      runes.forEach(rune => {
+        const neededOfRune = runes.filter(r => r === rune).length;
+        const s = selectedRunes.get(rune);
+        if (s != null && s / neededOfRune > 0) {
+          const ratio = s / neededOfRune;
+          haveRequiredRunes = haveRequiredRunes + (ratio < 1 ? ratio : 1);
         }
+      });
 
-        haveRunes.push(ratio);
+      const haveRatio = haveRequiredRunes / runes.length;
+      const ratio: IHaveRune = {
+        runeWord,
+        ratio: haveRatio
       }
 
+      // Don't show partial matches
+      if (onlyFullMatches && haveRatio < 1) {
+        continue;
+      }
+      else {
+        haveRunes.push(ratio);
+      }
+    }
+
+    // Primary sort by how many runes you have, secondary sort by clevel
+    if (sort === RuneWordSort.HAVE_RUNES) {
       haveRunes.sort((a, b) => {
         const primary = b.ratio - a.ratio;
         return primary || b.runeWord.level - a.runeWord.level;
@@ -153,7 +165,7 @@ function App() {
     <div className={styles.App}>
       <div className={styles.Panes}>
         <RuneCounter selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
-        <RuneWords itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
+        <RuneWords filtersAreApplied={filtersAreApplied} onlyFullMatches={onlyFullMatches} setOnlyFullMatches={setOnlyFullMatches} itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
       <footer className={styles.Footer}>Built by <a href="https://github.com/andyparisi/runeword" target="_blank" rel="noreferrer">Andy Parisi</a></footer>
     </div>

@@ -34,7 +34,11 @@ function Rune(props: IProps) {
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    selectRune(+e.target.value, true);
+    const value = +e.target.value;
+    if (isNaN(value)) {
+      return;
+    }
+    selectRune(value, true);
   }
 
   return (

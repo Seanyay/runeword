@@ -13,14 +13,10 @@
 
   & > *
     margin: 4px 4px
-    flex-grow: 1
 
   @media(max-width: $mobileWidth)
     margin-top: 15px
     flex-wrap: wrap
-
-    & > *
-      margin: 4px 4px
 
 .Reset
   background-image: url('../assets/reset.svg')
@@ -36,8 +32,31 @@
   flex-grow: 0 !important
   align-self: center
 
+.Name
+  flex-grow: 1
+
 .ItemTypes
   width: 100%
 
 .Sort
-  text-align: right
+  text-align: left
+
+  select
+    margin-left: 4px
+
+.OnlyFullMatches
+  text-align: left
+  flex-grow: 1
+  vertical-align: middle
+
+  input
+    margin-right: 5px
+    vertical-align: middle
+
+.Sockets
+  text-align: left
+  margin-left: 10px
+  margin-right: 10px
+
+  select
+    margin-left: 4px
