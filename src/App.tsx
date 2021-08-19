@@ -39,35 +39,27 @@ function App() {
 
   // Find the runeword matches
   if (selectedRunes.size) {
-    runewordLoop: for (const runeWord of runeWordsById.values()) {
+    for (const runeWord of runeWordsById.values()) {
       const { runes, itemTypes } = runeWord;
       // Apply a socket filter
       if (socketFilter && +socketFilter !== runes.length) {
         continue;
       }
 
+      let filterIsActive = false;
+
       // Apply an item type filter
       for (const itemType of itemTypes) {
-        if (!itemTypeFilters.has(itemType)) {
-          continue runewordLoop;
+        if (itemTypeFilters.has(itemType)) {
+          filterIsActive = true;
+          break;
         }
-        // If one of the parents isn't selected, skip the runeword
-        // else if (itemTypeFilters.has(itemType)) {
-        //   const parentTypes = itemTypesById.get(itemType)?.parentTypes;
-        //   if (parentTypes?.size) {
-        //     for (const parentType of parentTypes.entries()) {
-        //       if (!itemTypeFilters.has(parentType[0])) {
-        //         continue runewordLoop;
-        //       }
-        //     }
-        //   }
-        // }
       }
       
       // Determine with runewords to show
       for (const rune of runeWord.runes) {
         const numOfRune = selectedRunes.get(rune);
-        if (numOfRune != null && numOfRune && !runeWordMatchesByName.has(runeWord)) {
+        if (numOfRune != null && numOfRune && filterIsActive && !runeWordMatchesByName.has(runeWord)) {
           runeWordMatchesByName.add(runeWord);
         }
       }
