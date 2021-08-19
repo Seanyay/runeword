@@ -164,7 +164,7 @@ function App() {
   return (
     <div className={styles.App}>
       <div className={styles.Panes}>
-        <RuneCounter selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
+        <RuneCounter setHighlightedRunes={setHighlightedRunes} selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
         <RuneWords filtersAreApplied={filtersAreApplied} onlyFullMatches={onlyFullMatches} setOnlyFullMatches={setOnlyFullMatches} itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
       <footer className={styles.Footer}>Built by <a href="https://github.com/andyparisi/runeword" target="_blank" rel="noreferrer">Andy Parisi</a></footer>

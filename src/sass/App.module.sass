@@ -30,7 +30,10 @@ button
   border: 0
   outline: 0
   padding: 0
-  background: none
+  background-color: transparent !important // we don't want the PureDiablo styles to mess with this
+
+  &:hover
+    background-color: transparent !important
 
 .App
   text-align: center

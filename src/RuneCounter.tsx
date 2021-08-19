@@ -10,10 +10,11 @@ interface IProps {
   highlightedRunes: Set<Runes>;
   selectedRunes: SelectedRune;
   setRunes: (runes: SelectedRune) => void;
+  setHighlightedRunes: React.Dispatch<React.SetStateAction<Set<Runes>>>;
 }
 
 function RuneCounter(props: IProps) {
-  const { setRunes, selectedRunes, highlightedRunes } = props;
+  const { setRunes, selectedRunes, highlightedRunes, setHighlightedRunes } = props;
   const runeImages: JSX.Element[] = [];
 
   for (const r of runesById.entries()) {
@@ -26,7 +27,7 @@ function RuneCounter(props: IProps) {
   }
 
   return (
-    <div className={styles.RuneCounter}>
+    <div className={styles.RuneCounter} onMouseEnter={() => setHighlightedRunes(new Set())}>
       <div className={styles.RuneImages}>{runeImages}</div>
       <button className={styles.ClearRunes} onClick={clearRunes}>Clear Runes</button>
     </div>
