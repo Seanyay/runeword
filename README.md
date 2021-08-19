@@ -12,9 +12,10 @@ Use the runeword calculator to plug in which runes you have, so you can see what
 - Filter by runeword name
 - Saved rune counts on page refresh
 - Sort runewords by Have Runes, CLVL, or Name
+- Filter by item type
+- Socket count filter
 
 ## In the pipeline
-- Filter by item type
 - Runeword search function
 - Runeword stats on hover
 
