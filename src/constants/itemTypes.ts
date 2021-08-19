@@ -17,6 +17,7 @@ const itemTypesById: Map<ItemTypes, IItemType> = new Map([
   [ItemTypes.MISSILE_WEAPONS, { id: ItemTypes.MISSILE_WEAPONS, name: "Missile Weapons", parentTypes: new Set([ItemTypes.WEAPONS]), slot: Slots.WEAPON }],
   // Armor types
   [ItemTypes.ARMOR, { id: ItemTypes.ARMOR, name: "Armor", slot: Slots.ARMOR }],
+  [ItemTypes.BODY_ARMOR, { id: ItemTypes.BODY_ARMOR, name: "Body Armor", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.ARMOR }],
   [ItemTypes.SHIELDS, { id: ItemTypes.SHIELDS, name: "Shields", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.SHIELD }],
   [ItemTypes.HELMS, { id: ItemTypes.HELMS, name: "Helms", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.HELM }],
   [ItemTypes.PALADIN_SHIELDS, { id: ItemTypes.PALADIN_SHIELDS, name: "Paladin Shields", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.SHIELD }]
