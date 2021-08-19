@@ -4,6 +4,7 @@ import { runesById } from './constants/runes';
 import { Runes } from './enums/Runes';
 import { SelectedRune } from './interfaces';
 import Rune from './Rune';
+import { removeItem } from './utils';
 
 interface IProps {
   highlightedRunes: Set<Runes>;
@@ -19,9 +20,15 @@ function RuneCounter(props: IProps) {
     runeImages.push(<Rune key={r[0]} rune={r[1]} setRunes={setRunes} selectedRunes={selectedRunes} highlightedRunes={highlightedRunes} />);
   }
 
+  function clearRunes() {
+    setRunes(new Map());
+    removeItem('runes');
+  }
+
   return (
     <div className={styles.RuneCounter}>
-      {runeImages}
+      <div className={styles.RuneImages}>{runeImages}</div>
+      <button className={styles.ClearRunes} onClick={clearRunes}>Clear Runes</button>
     </div>
   );
 }

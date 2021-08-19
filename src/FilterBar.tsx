@@ -41,10 +41,10 @@ function FilterBar(props: IProps) {
   }
 
   function reset() {
-    setSelectedRunes(new Map());
     setFilterSearch('');
     setItemTypeFilters(new Set());
-    removeItem('runes');
+    setSocketFilter('');
+    setRuneWordSort(RuneWordSort.HAVE_RUNES);
   }
 
   return (

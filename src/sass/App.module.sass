@@ -63,7 +63,14 @@ button
 
 .RuneCounter
   display: flex
+  flex-direction: column
   max-width: 300px
+
+  @media(max-width: $mobileWidth)
+    max-width: none
+
+.RuneImages
+  display: flex
   flex-direction: row
   flex-wrap: wrap
   flex-grow: 1
@@ -71,9 +78,10 @@ button
   flex-basis: 50%
   align-content: flex-start
 
-  @media(max-width: $mobileWidth)
-    max-width: none
-
+.ClearRunes
+  color: $magic
+  padding: 15px 0
+  text-align: left
 
 .Rune
   width: 50px

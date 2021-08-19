@@ -589,7 +589,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.SWORDS, ItemTypes.SHIELDS],
     attributes: ["BOTH:", "+2 To All Skills", "+25-35% Faster Cast Rate (varies)", "+55% Faster Hit Recovery", "+250 Defense Vs. Missile", "+22 To Vitality", "+89-112 To Mana (varies)", "+3-8 Magic Absorb (varies)", "SHIELDS:", "Cold Resist +35%", "Lightning Resist +35%", "Poison Resist +35%", "Attacker Takes Damage of 14", "SWORDS:", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage (3 Sec, Normal)", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit"],
     level: 25,
-    ladderOnly: false
+    ladderOnly: true
   },
   {
     name: RuneWords.VOICE_OF_REASON,
