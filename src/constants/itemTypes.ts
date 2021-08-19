@@ -4,6 +4,7 @@ import { IItemType } from "../interfaces";
 const itemTypesById: Map<ItemTypes, IItemType> = new Map([
   [ItemTypes.WEAPONS, { id: ItemTypes.WEAPONS, name: "Weapons", slot: Slots.WEAPON }],
   [ItemTypes.MELEE_WEAPONS, { id: ItemTypes.MELEE_WEAPONS, name: "Melee Weapons", parentTypes: new Set([ItemTypes.WEAPONS]), slot: Slots.WEAPON }],
+  [ItemTypes.MISSILE_WEAPONS, { id: ItemTypes.MISSILE_WEAPONS, name: "Missile Weapons", parentTypes: new Set([ItemTypes.WEAPONS]), slot: Slots.WEAPON }],
   [ItemTypes.AXES, { id: ItemTypes.AXES, name: "Axes", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
   [ItemTypes.MACES, { id: ItemTypes.MACES, name: "Maces", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
   [ItemTypes.SWORDS, { id: ItemTypes.SWORDS, name: "Swords", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
@@ -14,7 +15,6 @@ const itemTypesById: Map<ItemTypes, IItemType> = new Map([
   [ItemTypes.HAMMERS, { id: ItemTypes.HAMMERS, name: "Hammers", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
   [ItemTypes.WANDS, { id: ItemTypes.WANDS, name: "Wands", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
   [ItemTypes.ASSASSIN_KATARS, { id: ItemTypes.ASSASSIN_KATARS, name: "Assassin Katars", parentTypes: new Set([ItemTypes.WEAPONS, ItemTypes.MELEE_WEAPONS]), slot: Slots.WEAPON }],
-  [ItemTypes.MISSILE_WEAPONS, { id: ItemTypes.MISSILE_WEAPONS, name: "Missile Weapons", parentTypes: new Set([ItemTypes.WEAPONS]), slot: Slots.WEAPON }],
   // Armor types
   [ItemTypes.ARMOR, { id: ItemTypes.ARMOR, name: "Armor", slot: Slots.ARMOR }],
   [ItemTypes.BODY_ARMOR, { id: ItemTypes.BODY_ARMOR, name: "Body Armor", parentTypes: new Set([ItemTypes.ARMOR]), slot: Slots.ARMOR }],

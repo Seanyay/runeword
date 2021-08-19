@@ -52,16 +52,16 @@ function App() {
           continue runewordLoop;
         }
         // If one of the parents isn't selected, skip the runeword
-        else if (itemTypeFilters.has(itemType)) {
-          const parentTypes = itemTypesById.get(itemType)?.parentTypes;
-          if (parentTypes?.size) {
-            for (const parentType of parentTypes.entries()) {
-              if (!itemTypeFilters.has(parentType[0])) {
-                continue runewordLoop;
-              }
-            }
-          }
-        }
+        // else if (itemTypeFilters.has(itemType)) {
+        //   const parentTypes = itemTypesById.get(itemType)?.parentTypes;
+        //   if (parentTypes?.size) {
+        //     for (const parentType of parentTypes.entries()) {
+        //       if (!itemTypeFilters.has(parentType[0])) {
+        //         continue runewordLoop;
+        //       }
+        //     }
+        //   }
+        // }
       }
       
       // Determine with runewords to show

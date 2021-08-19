@@ -48,23 +48,17 @@ function ItemTypesFilter(props: IProps) {
     let rowItem: JSX.Element;
 
     const isParent1 = parentTypes == null;
-    const isParent2 = parentTypes?.size === 1 && (parentTypes.has(ItemTypes.WEAPONS) || parentTypes.has(ItemTypes.ARMOR));
-    const isChild = !isParent1 && !isParent2;
-
+    
     if (isParent1) {
       rowClass = ` ${styles.Parent1}`;
     }
-    else if (isParent2) {
-      rowClass = ` ${styles.Parent2}`;
-    }
-    else if (isChild) {
+    else {
       rowClass = ` ${styles.Child}`;
     }
 
     rowItem = isParent1 ? (
       <legend key={name} className={`${styles.Row} ${rowClass}`}>
-        <input id={itemTypeId} type="checkbox" checked={itemTypeFilters.has(id)} onChange={() => handleItemFilterChange(itemType)} />
-        <label htmlFor={itemTypeId}>{name}</label>
+        {name}
       </legend>
     ) : (
       <div key={name} className={`${styles.Row} ${rowClass}`}>
