@@ -84,12 +84,36 @@ button
   flex-basis: 50%
   align-content: flex-start
 
+.RuneButtons
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+.SearchRuneWords
+  color: $unique !important
+  padding: 15px 0
+  cursor: pointer
+
+  &:before
+    content: ''
+    display: inline-block
+    width: 12px
+    height: 12px
+    background: url(../assets/search.svg) no-repeat 0 0
+    margin-right: 5px
+
 .ClearRunes
   color: $magic !important
   padding: 15px 0
-  text-align: left
-  align-self: flex-start
   cursor: pointer
+
+  &:before
+    content: ''
+    display: inline-block
+    width: 12px
+    height: 12px
+    background: url(../assets/clear.svg) no-repeat 0 0
+    margin-right: 5px
 
 .Rune
   width: 50px
