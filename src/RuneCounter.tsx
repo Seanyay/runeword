@@ -28,8 +28,8 @@ function RuneCounter(props: IProps) {
 
   return (
     <div className={styles.RuneCounter} onMouseEnter={() => setHighlightedRunes(new Set())}>
-      <div className={styles.RuneImages}>{runeImages}</div>
       <button className={styles.ClearRunes} onClick={clearRunes}>Clear Runes</button>
+      <div className={styles.RuneImages}>{runeImages}</div>
     </div>
   );
 }
