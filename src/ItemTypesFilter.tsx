@@ -7,11 +7,12 @@ import { IItemType } from './interfaces';
 interface IProps {
   itemTypeFilters: Set<ItemTypes>;
   setItemTypeFilters: React.Dispatch<React.SetStateAction<Set<ItemTypes>>>;
+  handleSelectAllItemTypes: () => void;
 }
 
 function ItemTypesFilter(props: IProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const { itemTypeFilters, setItemTypeFilters } = props;
+  const { itemTypeFilters, setItemTypeFilters, handleSelectAllItemTypes } = props;
 
   const weaponItems: JSX.Element[] = [];
   const armorItems: JSX.Element[] = [];
@@ -29,21 +30,13 @@ function ItemTypesFilter(props: IProps) {
     setItemTypeFilters(filters);
   }
 
-  function handleSelectAll() {
-    const filters: Set<ItemTypes> = new Set();
-    itemTypesById.forEach(itemType => { 
-      filters.add(itemType.id);
-    });
-    setItemTypeFilters(filters);
-  }
-
   function handleDeselectAll() {
     setItemTypeFilters(new Set());
   }
 
   // Default everything to selected
   useEffect(() => {
-    handleSelectAll();
+    handleSelectAllItemTypes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -89,7 +82,7 @@ function ItemTypesFilter(props: IProps) {
         <button onClick={() => setIsOpen(!isOpen)} className={styles.OpenItemType}>Filter by item type</button>
         {isOpen && (
           <div className={styles.SelectButtons}>
-            <button className={styles.SelectBtn} onClick={handleSelectAll}>Select All</button>
+            <button className={styles.SelectBtn} onClick={handleSelectAllItemTypes}>Select All</button>
             <button className={styles.SelectBtn} onClick={handleDeselectAll}>Deselect All</button>
           </div>
         )}

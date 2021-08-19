@@ -3,9 +3,9 @@ import styles from './sass/FilterBar.module.sass';
 import { sortOptions, socketFilterOptions } from './constants/filterOptions';
 import { RuneWordSort } from './enums/RuneWordSort';
 import { ISelectedRunes } from './interfaces';
-import { removeItem } from './utils';
 import ItemTypesFilter from './ItemTypesFilter';
 import { ItemTypes } from './enums/ItemTypes';
+import { itemTypesById } from './constants/itemTypes';
 
 interface IProps extends ISelectedRunes {
   setRuneWordSort: (method: RuneWordSort) => void;
@@ -19,7 +19,7 @@ interface IProps extends ISelectedRunes {
 }
 
 function FilterBar(props: IProps) {
-  const { setSelectedRunes, sortMethod, setRuneWordSort, setFilterSearch, filterSearch, socketFilter, setSocketFilter, itemTypeFilters, setItemTypeFilters } = props;
+  const { sortMethod, setRuneWordSort, setFilterSearch, filterSearch, socketFilter, setSocketFilter, itemTypeFilters, setItemTypeFilters } = props;
 
   const sortOptionItems: JSX.Element[] = Array.from(sortOptions, fo => {
     return <option key={fo.value} value={fo.value}>{fo.label}</option>;
@@ -40,9 +40,17 @@ function FilterBar(props: IProps) {
     setSocketFilter(e.target.value);
   }
 
+  function handleSelectAllItemTypes() {
+    const filters: Set<ItemTypes> = new Set();
+    itemTypesById.forEach(itemType => { 
+      filters.add(itemType.id);
+    });
+    setItemTypeFilters(filters);
+  }
+
   function reset() {
     setFilterSearch('');
-    setItemTypeFilters(new Set());
+    handleSelectAllItemTypes();
     setSocketFilter('');
     setRuneWordSort(RuneWordSort.HAVE_RUNES);
   }
@@ -54,7 +62,7 @@ function FilterBar(props: IProps) {
       <div className={styles.Sockets}>Sockets <select value={socketFilter} onChange={handleSetSocketFilterChange}>{socketFilterItems}</select></div>
       <div className={styles.Sort}>Sort <select value={sortMethod} onChange={handleFilterChange}>{sortOptionItems}</select></div>
       <div className={styles.ItemTypes}>
-        <ItemTypesFilter itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} />
+        <ItemTypesFilter itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} handleSelectAllItemTypes={handleSelectAllItemTypes} />
       </div>
     </div>
   );
