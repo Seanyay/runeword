@@ -43,7 +43,7 @@ const runeWords: IRuneWord[] = [
     name: RuneWords.ANCIENTS_PLEDGE,
     runes: [RAL, ORT, TAL],
     itemTypes: [ItemTypes.SHIELDS],
-    attributes: ["50% Chance To Cast Level 20 Poison Nova When You Kill An Enemy", "Indestructible", "+60% Increased Attack Speed", "+350-400% Enhanced Damage (varies)", "-25% Target Defense", "+50 To Attack Rating", "+200% Damage To Undead", "+50 To Attack Rating Against Undead", "7% Mana Stolen Per Hit", "12-15% Life Stolen Per Hit (varies)", "Prevent Monster Heal", "+30 To All Attributes", "+1 To Light Radius", "Requirements -20%"],
+    attributes: ["+50% Enhanced Defense", "Cold Resist +43%", "Lightning Resist +48%", "Fire Resist +48%", "Poison Resist +48%", "10% Damage Taken Goes to Mana"],
     level: 21,
     ladderOnly: false
   },
