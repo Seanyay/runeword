@@ -145,7 +145,7 @@ const runeWords: IRuneWord[] = [
   },
   {
     name: RuneWords.RADIANCE,
-    runes: [NEF, SOL, ETH],
+    runes: [NEF, SOL, ITH],
     itemTypes: [ItemTypes.HELMS],
     attributes: ["+75% Enhanced Defense", "+30 Defense vs. Missiles", "+10 to Vitality", "+10 to Energy", "+33 to Mana", "Damage Reduced by 7", "Magic Damage Reduced by 3", "15% Damage Taken Goes to Mana", "+5 to Light Radius"],
     level: 27,
