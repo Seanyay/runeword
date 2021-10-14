@@ -11,10 +11,12 @@ interface IProps {
   selectedRunes: SelectedRune;
   setRunes: (runes: SelectedRune) => void;
   setHighlightedRunes: React.Dispatch<React.SetStateAction<Set<Runes>>>;
+  searchMode: boolean;
+  setSearchMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function RuneCounter(props: IProps) {
-  const { setRunes, selectedRunes, highlightedRunes, setHighlightedRunes } = props;
+  const { setRunes, selectedRunes, highlightedRunes, setHighlightedRunes, searchMode, setSearchMode } = props;
   const runeImages: JSX.Element[] = [];
 
   for (const r of runesById.entries()) {
@@ -26,9 +28,21 @@ function RuneCounter(props: IProps) {
     removeItem('runes');
   }
 
+  function toggleSearchMode(e) {
+    setSearchMode(!searchMode);
+  }
+
   return (
     <div className={styles.RuneCounter} onMouseEnter={() => setHighlightedRunes(new Set())}>
-      <button className={styles.ClearRunes} onClick={clearRunes}>Clear Runes</button>
+      <div className={styles.RuneButtons}>
+        <button className={styles.ClearRunes} onClick={clearRunes}>Clear Runes</button>
+        <div className={styles.AllRunesFilter}>
+          <input id="allRunes" type="checkbox" checked={searchMode} onChange={toggleSearchMode} />
+          <label htmlFor="allRunes" className={styles.SearchMode}>
+            Filter all runewords, regardless of my runes.
+          </label>
+        </div>
+      </div>
       <div className={styles.RuneImages}>{runeImages}</div>
     </div>
   );

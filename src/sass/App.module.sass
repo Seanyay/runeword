@@ -85,6 +85,7 @@ button
   align-content: flex-start
 
 .ClearRunes
+  flex-shrink: 0
   color: $magic !important
   padding: 15px 10px
   margin-bottom: 15px
@@ -169,3 +170,22 @@ button
   width: 100%
   padding-top: 10px
   cursor: pointer
+
+.SearchMode
+  padding-left: 6px
+  user-select: none
+  font-size: 12px
+
+.RuneButtons
+  display: flex
+  flex-direction: row
+  justify-content: center
+
+.AllRunesFilter
+  padding: 7px
+  margin-left: 15px
+  flex-grow: 0
+  text-align: left
+
+  > *
+    vertical-align: middle

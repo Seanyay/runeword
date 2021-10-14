@@ -24,6 +24,7 @@ function App() {
   const [socketFilter, setSocketFilter] = useState('');
   const [itemTypeFilters, setItemTypeFilters] = useState<Set<ItemTypes>>(new Set());
   const [onlyFullMatches, setOnlyFullMatches] = useState(false);
+  const [searchMode, setSearchMode] = useState(false);
   const filtersAreApplied = filterSearch.length > 0 || socketFilter.length > 0 || itemTypeFilters.size !== itemTypesById.size || onlyFullMatches;
 
   let runeWordMatchesByName: Set<IRuneWord> = new Set();
@@ -59,7 +60,7 @@ function App() {
       // Determine which runewords to show
       for (const rune of runeWord.runes) {
         const numOfRune = selectedRunes.get(rune);
-        if (numOfRune != null && numOfRune && filterIsActive && !runeWordMatchesByName.has(runeWord)) {
+        if (((numOfRune != null && numOfRune) || searchMode) && filterIsActive && !runeWordMatchesByName.has(runeWord)) {
           runeWordMatchesByName.add(runeWord);
         }
       }
@@ -156,7 +157,7 @@ function App() {
   return (
     <div className={styles.App}>
       <div className={styles.Panes}>
-        <RuneCounter setHighlightedRunes={setHighlightedRunes} selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
+        <RuneCounter searchMode={searchMode} setSearchMode={setSearchMode} setHighlightedRunes={setHighlightedRunes} selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
         <RuneWords filtersAreApplied={filtersAreApplied} onlyFullMatches={onlyFullMatches} setOnlyFullMatches={setOnlyFullMatches} itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
       <footer className={styles.Footer}>Built by <a href="https://github.com/andyparisi/runeword" target="_blank" rel="noreferrer">Andy Parisi</a></footer>
