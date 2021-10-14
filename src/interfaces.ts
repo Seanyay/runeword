@@ -44,4 +44,5 @@ export interface IItemType {
   name: string;
   parentTypes?: Set<ItemTypes>;
   slot: Slots;
+  hideFilter?: boolean;
 }

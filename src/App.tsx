@@ -56,7 +56,7 @@ function App() {
         }
       }
       
-      // Determine with runewords to show
+      // Determine which runewords to show
       for (const rune of runeWord.runes) {
         const numOfRune = selectedRunes.get(rune);
         if (numOfRune != null && numOfRune && filterIsActive && !runeWordMatchesByName.has(runeWord)) {

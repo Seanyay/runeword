@@ -40,35 +40,26 @@ function ItemTypesFilter(props: IProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  itemTypesById.forEach(itemType => {
+  for (const it of itemTypesById) {
+    const [, itemType] = it;
     const arr = itemType.slot === Slots.WEAPON ? weaponItems : armorItems;
-    const { name, parentTypes, id } = itemType;
+    const { name, id, hideFilter } = itemType;
     const itemTypeId = `itemType_${name}`;
-    let rowClass = styles.Child;
     let rowItem: JSX.Element;
 
-    const isParent1 = parentTypes == null;
-    
-    if (isParent1) {
-      rowClass = ` ${styles.Parent1}`;
-    }
-    else {
-      rowClass = ` ${styles.Child}`;
+    if (hideFilter) {
+      continue;
     }
 
-    rowItem = isParent1 ? (
-      <legend key={name} className={`${styles.Row} ${rowClass}`}>
-        {name}
-      </legend>
-    ) : (
-      <div key={name} className={`${styles.Row} ${rowClass}`}>
+    rowItem = (
+      <div key={name} className={`${styles.Row} ${styles.Child}`}>
         <input id={itemTypeId} type="checkbox" checked={itemTypeFilters.has(id)} onChange={() => handleItemFilterChange(itemType)} />
         <label htmlFor={itemTypeId}>{name}</label>
       </div>
     );
 
     arr.push(rowItem);
-  });
+  }
 
   return (
     <div className={`${styles.ItemTypesFilter} ${itemTypeButtonClass}`}>
@@ -82,8 +73,14 @@ function ItemTypesFilter(props: IProps) {
         )}
       </header>
       <div className={styles.Content}>
-        <fieldset className={styles.Weapons}>{weaponItems}</fieldset>
-        <fieldset className={styles.Armor}>{armorItems}</fieldset>
+        <fieldset className={styles.Weapons}>
+          <legend className={`${styles.Row} ${styles.Parent1}`}>Weapons</legend>
+          {weaponItems}
+        </fieldset>
+        <fieldset className={styles.Armor}>
+          <legend className={`${styles.Row} ${styles.Parent1}`}>Armor</legend>
+          {armorItems}
+        </fieldset>
       </div>
     </div>
   ); 
