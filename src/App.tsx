@@ -9,6 +9,7 @@ import RuneWords from './RuneWords';
 import { convertArrayToMap, convertMapToArray, convertSetToArray, getItem, setItem } from './utils';
 import { ItemTypes } from './enums/ItemTypes';
 import { itemTypesById } from './constants/itemTypes';
+import * as pkg from '../package.json';
 
 interface IHaveRune {
   runeWord: IRuneWord;
@@ -160,7 +161,7 @@ function App() {
         <RuneCounter searchMode={searchMode} setSearchMode={setSearchMode} setHighlightedRunes={setHighlightedRunes} selectedRunes={selectedRunes} setRunes={setRunes} highlightedRunes={highlightedRunes} />
         <RuneWords filtersAreApplied={filtersAreApplied} onlyFullMatches={onlyFullMatches} setOnlyFullMatches={setOnlyFullMatches} itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} sortMethod={sortMethod} setRuneWordSort={setRuneWordSort} selectedRunes={selectedRunes} setSelectedRunes={setSelectedRunes} runeWordMatchesByName={runeWordMatchesByName} setHighlightedRune={setHighlightedRune} />
       </div>
-      <footer className={styles.Footer}>Built by <a href="https://github.com/andyparisi/runeword" target="_blank" rel="noreferrer">Andy Parisi</a></footer>
+      <footer className={styles.Footer}>Version {pkg.version}. Built by <a href="https://github.com/andyparisi/runeword" target="_blank" rel="noreferrer">Andy Parisi</a></footer>
     </div>
   );
 }
