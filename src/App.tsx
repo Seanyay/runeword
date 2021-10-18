@@ -40,7 +40,7 @@ function App() {
   }, []);
 
   // Find the runeword matches
-  if (selectedRunes.size) {
+  if (selectedRunes.size || searchMode) {
     for (const runeWord of runeWordsById.values()) {
       const { runes, itemTypes } = runeWord;
       // Apply a socket filter
@@ -61,7 +61,7 @@ function App() {
       // Determine which runewords to show
       for (const rune of runeWord.runes) {
         const numOfRune = selectedRunes.get(rune);
-        if (((numOfRune != null && numOfRune) || searchMode) && filterIsActive && !runeWordMatchesByName.has(runeWord)) {
+        if ((numOfRune != null && numOfRune && filterIsActive && !runeWordMatchesByName.has(runeWord)) || searchMode) {
           runeWordMatchesByName.add(runeWord);
         }
       }
