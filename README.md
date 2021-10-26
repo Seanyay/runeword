@@ -14,6 +14,7 @@ Use the runeword calculator to plug in which runes you have, so you can see what
 - Sort runewords by Have Runes, CLVL, or Name
 - Filter by item type
 - Socket count filter
+- Runeword search function
 
 ## In the pipeline
 - Runeword stats on hover
