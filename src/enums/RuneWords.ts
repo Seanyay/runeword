@@ -40,7 +40,7 @@ export enum RuneWords {
   GLOOM = "Gloom",
   HAND_OF_JUSTICE = "Hand of Justice",
   HEART_OF_THE_OAK = "Heart of the Oak",
-  KINGSLAYER = "Kinglsayer",
+  KINGSLAYER = "Kingslayer",
   PASSION = "Passion",
   PRUDENCE = "Prudence",
   SANCTUARY = "Sanctuary",
