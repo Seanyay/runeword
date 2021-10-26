@@ -16,8 +16,8 @@ Use the runeword calculator to plug in which runes you have, so you can see what
 - Socket count filter
 
 ## In the pipeline
-- Runeword search function
 - Runeword stats on hover
+- Ladder only filter
 
 ## Future features and enhancements
 - Better mobile design & support
