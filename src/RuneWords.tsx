@@ -23,10 +23,11 @@ interface IProps extends ISelectedRunes {
   onlyFullMatches: boolean;
   setOnlyFullMatches: React.Dispatch<React.SetStateAction<boolean>>;
   filtersAreApplied: boolean;
+  searchMode: boolean;
 }
 
 function RuneWords(props: IProps) {
-  const { filtersAreApplied, onlyFullMatches, setOnlyFullMatches, runeWordMatchesByName, selectedRunes, setSelectedRunes, setHighlightedRune, sortMethod, setRuneWordSort, filterSearch, setFilterSearch, setSocketFilter, socketFilter, itemTypeFilters, setItemTypeFilters } = props;
+  const { filtersAreApplied, onlyFullMatches, setOnlyFullMatches, runeWordMatchesByName, selectedRunes, setSelectedRunes, setHighlightedRune, sortMethod, setRuneWordSort, filterSearch, setFilterSearch, setSocketFilter, socketFilter, itemTypeFilters, setItemTypeFilters, searchMode } = props;
   const runeWordMatchItems: JSX.Element[] = [];
 
   runeWordMatchesByName.forEach(rw => {
@@ -61,7 +62,7 @@ function RuneWords(props: IProps) {
 
   return (
     <div className={styles.RuneWords}>
-      {selectedRunes.size > 0 && <FilterBar handleSelectAllItemTypes={handleSelectAllItemTypes} resetFilters={resetFilters} onlyFullMatches={onlyFullMatches} setOnlyFullMatches={setOnlyFullMatches} itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />}
+      {(selectedRunes.size > 0 || searchMode) && <FilterBar handleSelectAllItemTypes={handleSelectAllItemTypes} resetFilters={resetFilters} onlyFullMatches={onlyFullMatches} setOnlyFullMatches={setOnlyFullMatches} itemTypeFilters={itemTypeFilters} setItemTypeFilters={setItemTypeFilters} socketFilter={socketFilter} setSocketFilter={setSocketFilter} filterSearch={filterSearch} setFilterSearch={setFilterSearch} setRuneWordSort={setRuneWordSort} sortMethod={sortMethod} setSelectedRunes={setSelectedRunes} selectedRunes={selectedRunes} />}
       <div className={styles.RuneWordsContent}>
         {runeWordMatchItems.length ? runeWordMatchItems : <div className={styles.NoResults}>{filtersAreApplied ? clearFilters : `Select runes to see suggested runewords`}</div>}
       </div>

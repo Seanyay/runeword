@@ -4,7 +4,7 @@ import { runesById } from './constants/runes';
 import { Runes } from './enums/Runes';
 import { SelectedRune } from './interfaces';
 import Rune from './Rune';
-import { removeItem } from './utils';
+import { setItem } from './utils';
 
 interface IProps {
   highlightedRunes: Set<Runes>;
@@ -25,7 +25,7 @@ function RuneCounter(props: IProps) {
 
   function clearRunes() {
     setRunes(new Map());
-    removeItem('runes');
+    setItem('runes', [{"1": 0}]);
   }
 
   function toggleSearchMode(e) {
