@@ -61,7 +61,7 @@ function App() {
       // Determine which runewords to show
       for (const rune of runeWord.runes) {
         const numOfRune = selectedRunes.get(rune);
-        if ((numOfRune != null && numOfRune && filterIsActive && !runeWordMatchesByName.has(runeWord)) || searchMode) {
+        if ((numOfRune != null && numOfRune && filterIsActive && !runeWordMatchesByName.has(runeWord)) || (filterIsActive && searchMode)) {
           runeWordMatchesByName.add(runeWord);
         }
       }
