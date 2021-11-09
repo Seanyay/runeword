@@ -267,7 +267,7 @@ const runeWords: IRuneWord[] = [
     name: RuneWords.CHAINS_OF_HONOR,
     runes: [DOL, UM, BER, IST],
     itemTypes: [ItemTypes.BODY_ARMOR],
-    attributes: ["+2 To All Skills", "+200% Damage To Demons", "+100% Damage To Undead", "8% Life Stolen Per Hit", "+70% Enhanced Defense", "+20 To StrengthReplenish Life +7", "All Resistances +65", "Damage Reduced By 8%", "25% Better Chance of Getting Magic Items"],
+    attributes: ["+2 To All Skills", "+200% Damage To Demons", "+100% Damage To Undead", "8% Life Stolen Per Hit", "+70% Enhanced Defense", "+20 To Strength", "Replenish Life +7", "All Resistances +65", "Damage Reduced By 8%", "25% Better Chance of Getting Magic Items"],
     level: 63,
     ladderOnly: false
   },
