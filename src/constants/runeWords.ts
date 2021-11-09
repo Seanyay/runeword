@@ -75,7 +75,7 @@ const runeWords: IRuneWord[] = [
     name: RuneWords.HONOR,
     runes: [AMN, EL, ITH, TIR, SOL],
     itemTypes: [ItemTypes.MELEE_WEAPONS],
-    attributes: ["+60% Enhanced Damage", "+10 to Maximum Damage", "-25% Target Defense", "Adds 5-30 Fire Damage", "Adds 21-110 Lightning Damage", "+75 Poison Damage over 5 secs", "+3 to Holy Shock (Paladin Only)", "+5% to Maximum Lightning Resist", "Lightning Resist +60%", "Level 7 Chain Lightning (60 charges)"],
+    attributes: ["+160% Enhanced Damage", "+9 to Minimum Damage", "+9 to Maximum Damage", "25% Deadly Strike", "+250 to Attack Rating", "+1 to All Skills", "7% Life Stolen per Hit", "+10 Replenish Life", "+10 to Strength", "+1 to Light Radius", "+2 to Mana per Kill"],
     level: 27,
     ladderOnly: false
   },
