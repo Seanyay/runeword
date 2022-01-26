@@ -429,7 +429,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.MISSILE_WEAPONS],
     attributes: ["35% Chance To Cast Level 14 Amplify Damage When Struck", "100% Chance To Cast Level 18 Bone Spear On Striking", "Fires Explosive Arrows or Bolts (15)", "+260-340% Enhanced Damage (varies)", "Ignore Target's Defense", "20% Bonus to Attack Rating", "+280-330% Damage To Demons (varies)", "20% Deadly Strike", "Prevent Monster Heal", "Knockback"],
     level: 65,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.DEATH,
@@ -437,7 +437,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.SWORDS, ItemTypes.AXES],
     attributes: ["Indestructible", "100% Chance To Cast Level 44 Chain Lightning When You Die", "25% Chance To Cast Level 18 Glacial Spike On Attack", "+300-385% Enhanced Damage (varies)", "20% Bonus To Attack Rating", "+50 To Attack Rating", "Adds 1-50 Lightning Damage", "7% Mana Stolen Per Hit", "50% Chance of Crushing Blow", "(0.5*Clvl)% Deadly Strike (Based on Character Level)", "+1 To Light Radius", "Level 22 Blood Golem (15 Charges)", "Requirements -20%"],
     level: 55,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.DESTRUCTION,
@@ -445,7 +445,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.POLEARMS, ItemTypes.SWORDS],
     attributes: ["23% Chance To Cast Level 12 Volcano On Striking", "5% Chance To Cast Level 23 Molten Boulder On Striking", "100% Chance To Cast level 45 Meteor When You Die", "15% Chance To Cast Level 22 Nova On Attack", "+350% Enhanced Damage", "Ignore Target's Defense", "Adds 100-180 Magic Damage", "7% Mana Stolen Per Hit", "20% Chance Of Crushing Blow", "20% Deadly Strike", "Prevent Monster Heal", "+10 To Dexterity"],
     level: 65,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.DRAGON,
@@ -453,7 +453,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.BODY_ARMOR, ItemTypes.SHIELDS],
     attributes: ["BOTH:", "20% Chance to Cast Level 18 Venom When Struck", "12% Chance To Cast Level 15 Hydra On Striking", "Level 14 Holy Fire Aura When Equipped", "+360 Defense", "+230 Defense Vs. Missile", "+3-5 To All Attributes (varies)", "+(0.375*Clvl) To Strength (Based on Character Level)", "+5% To Maximum Lightning Resist", "Damage Reduced by 7", "ARMOR:", "Increase Maximum Mana 5%", "SHIELDS:", "+50 To Mana"],
     level: 61,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.DREAM,
@@ -461,7 +461,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.HELMS, ItemTypes.SHIELDS],
     attributes: ["BOTH:", "10% Chance To Cast Level 15 Confuse When Struck", "Level 15 Holy Shock Aura When Equipped", "+20-30% Faster Hit Recovery (varies)", "+30% Enhanced Defense", "+150-220 Defense (varies)", "+10 To Vitality", "+(0.625*Clvl) To Mana (Based On Character Level)", "All Resistances +5-20 (varies)", "12-25% Better Chance of Getting Magic Items (varies)", "HEADGEAR:", "Increase Maximum Life 5%", "SHIELDS:", "+50 To Life"],
     level: 65,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.EDGE,
@@ -469,7 +469,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.MISSILE_WEAPONS],
     attributes: ["Level 15 Thorns Aura When Equipped", "+35% Increased Attack Speed", "+320-380% Damage To Demons (varies)", "+280% Damage To Undead", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit", "Prevent Monster Heal", "+5-10 To All Attributes (varies)", "+2 To Mana After Each Kill", "Reduces All Vendor Prices 15%"],
     level: 25,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.FAITH,
@@ -477,7 +477,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.MISSILE_WEAPONS],
     attributes: ["Level 12-15 Fanaticism Aura When Equipped (varies)", "+1-2 To All Skills (varies)", "+330% Enhanced Damage", "Ignore Target's Defense", "300% Bonus To Attack Rating", "+75% Damage To Undead", "+50 To Attack Rating Against Undead", "+120 Fire Damage", "All Resistances +15", "10% Reanimate As: Returned", "75% Extra Gold From Monsters"],
     level: 65,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.FORTITUDE,
@@ -485,7 +485,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.WEAPONS, ItemTypes.BODY_ARMOR],
     attributes: ["BOTH:", "20% Chance To Cast Level 15 Chilling Armor when Struck", "+25% Faster Cast Rate", "+300% Enhanced Damage", "+200% Enhanced Defense", "+((8-12)*0.125*Clvl) To Life (Based on Character Level) (varies)", "All Resistances +25-30 (varies)", "12% Damage Taken Goes To Mana", "+1 To Light Radius", "WEAPONS:", "+9 To Minimum Damage", "+50 To Attack Rating", "20% Deadly Strike", "Hit Causes Monster To Flee 25%", "ARMOR:", "+15 Defense", "Replenish Life +7", "+5% To Maximum Lightning Resist", "Damage Reduced By 7"],
     level: 59,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.GRIEF,
@@ -493,7 +493,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.SWORDS, ItemTypes.AXES],
     attributes: ["35% Chance To Cast Level 15 Venom On Striking", "+30-40% Increased Attack Speed (varies)", "Damage +340-400 (varies)", "Ignore Target's Defense", "-25% Target Defense", "+(1.875*Clvl)% Damage To Demons (Based on Character Level)", "Adds 5-30 Fire Damage", "-20-25% To Enemy Poison Resistance (varies)", "20% Deadly Strike", "Prevent Monster Heal", "+2 To Mana After Each Kill", "+10-15 Life After Each Kill (varies)"],
     level: 59,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.HARMONY,
@@ -501,7 +501,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.MISSILE_WEAPONS],
     attributes: ["Level 10 Vigor Aura When Equipped", "+200-275% Enhanced Damage (varies)", "+9 To Minimum Damage", "+9 To Maximum Damage", "Adds 55-160 Fire Damage", "Adds 55-160 Lightning Damage", "Adds 55-160 Cold Damage", "+2-6 To Valkyrie (varies)", "+10 To Dexterity", "Regenerate Mana 20%", "+2 To Mana After Each Kill", "+2 To Light Radius", "Level 20 Revive (25 Charges)"],
     level: 39,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.ICE,
@@ -509,7 +509,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.MISSILE_WEAPONS],
     attributes: ["100% Chance To Cast Level 40 Blizzard When You Level-up", "25% Chance To Cast Level 22 Frost Nova On Striking", "Level 18 Holy Freeze Aura When Equipped", "+20% Increased Attack Speed", "+140-210% Enhanced Damage (varies)", "Ignore Target's Defense", "+25-30% To Cold Skill Damage (varies)", "7% Life Stolen Per Hit", "-20% To Enemy Cold Resistance", "20% Deadly Strike", "(3.125*Clvl)% Extra Gold From Monsters (Based on Character Level)"],
     level: 65,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.INFINITY,
@@ -517,7 +517,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.POLEARMS],
     attributes: ["50% Chance To Cast Level 20 Chain Lightning When You Kill An Enemy", "Level 12 Conviction Aura When Equipped", "+35% Faster Run/Walk", "+255-325% Enhanced Damage (varies)", "-(45-55)% To Enemy Lightning Resistance (varies)", "40% Chance of Crushing Blow", "Prevent Monster Heal", "+(0.5*Clvl) To Vitality (Based on Character Level)", "30% Better Chance of Getting Magic Items", "Level 21 Cyclone Armor (30 Charges)"],
     level: 63,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.INSIGHT,
@@ -525,7 +525,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.POLEARMS, ItemTypes.STAVES],
     attributes: ["Level 12-17 Meditation Aura When Equipped (varies)", "+35% Faster Cast Rate", "+200-260% Enhanced Damage (varies)", "+9 To Minimum Damage", "180-250% Bonus to Attack Rating (varies)", "Adds 5-30 Fire Damage", "+75 Poison Damage Over 5 Seconds", "+1-6 To Critical Strike (varies)", "+5 To All Attributes", "+2 To Mana After Each Kill", "23% Better Chance of Getting Magic Items"],
     level: 27,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.LAST_WISH,
@@ -533,7 +533,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.SWORDS, ItemTypes.HAMMERS, ItemTypes.AXES],
     attributes: ["6% Chance To Cast Level 11 Fade When Struck", "10% Chance To Cast Level 18 Life Tap On Striking", "20% Chance To Cast Level 20 Charged Bolt On Attack", "Level 17 Might Aura When Equipped", "+330-375% Enhanced Damage (varies)", "Ignore Target's Defense", "60-70% Chance of Crushing Blow (varies)", "Prevent Monster Heal", "Hit Blinds Target", "(0.5*Clvl)% Chance of Getting Magic Items (Based on Character Level)"],
     level: 65,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.LAWBRINGER,
@@ -541,7 +541,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.SWORDS, ItemTypes.HAMMERS, ItemTypes.SCEPTERS],
     attributes: ["20% Chance To Cast Level 15 Decrepify On Striking", "Level 16-18 Sanctuary Aura When Equipped (varies)", "-50% Target Defense", "Adds 150-210 Fire Damage", "Adds 130-180 Cold Damage", "7% Life Stolen Per Hit", "Slain Monsters Rest In Peace", "+200-250 Defense Vs. Missile (varies)", "+10 To Dexterity", "75% Extra Gold From Monsters"],
     level: 43,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.OATH,
@@ -549,7 +549,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.SWORDS, ItemTypes.AXES, ItemTypes.MACES],
     attributes: ["Indestructible", "30% Chance To Cast Level 20 Bone Spirit On Striking", "+50% Increased Attack Speed", "+210-340% Enhanced Damage (varies)", "+75% Damage To Demons", "+100 To Attack Rating Against Demons", "Prevent Monster Heal", "+10 To Energy", "+10-15 Magic Absorb (varies)", "Level 16 Heart of Wolverine (20 Charges)", "Level 17 Iron Golem (14 Charges)"],
     level: 59,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.OBEDIENCE,
@@ -557,7 +557,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.POLEARMS],
     attributes: ["30% Chance To Cast Level 21 Enchant When You Kill An Enemy", "+40% Faster Hit Recovery", "+370% Enhanced Damage", "-25% Target Defense", "Adds 3-14 Cold Damage (3 Seconds Duration,Normal)", "-25% To Enemy Fire Resistance", "40% Chance of Crushing Blow", "+200-300 Defense (varies)", "+10 To Strength", "+10 To Dexterity", "All Resistances +20-30 (varies)", "Requirements -20%"],
     level: 41,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.PHOENIX,
@@ -565,7 +565,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.WEAPONS, ItemTypes.SHIELDS],
     attributes: ["BOTH:", "100% Chance To Cast level 40 Blaze When You Level-up", "40% Chance To Cast Level 22 Firestorm On Striking", "Level 10-15 Redemption Aura When Equipped (varies)", "+350-400% Enhanced Damage (varies)", "-28% To Enemy Fire Resistance", "+350-400 Defense Vs. Missile (varies)", "+15-21 Fire Absorb (varies)", "WEAPONS:", "Ignores Target's Defense", "14% Mana Stolen Per Hit", "20% Deadly Strike", "SHIELDS:", "+50 To Life", "+5% To Maximum Lightning Resist", "+10% To Maximum Fire Resist"],
     level: 65,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.PRIDE,
@@ -573,7 +573,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.POLEARMS],
     attributes: ["25% Chance To Cast Level 17 Fire Wall When Struck", "Level 16-20 Concentration Aura When Equipped (varies)", "260-300% Bonus To Attack Rating (varies)", "+(1*Clvl)% Damage To Demons (Based on Character Level)", "Adds 50-280 Lightning Damage", "20% Deadly Strike", "Hit Blinds Target", "Freezes Target +3", "+10 To Vitality", "Replenish Life +8", "(1.875*Clvl)% Extra Gold From Monsters (Based on Character Level)"],
     level: 67,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.RIFT,
@@ -581,7 +581,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.POLEARMS, ItemTypes.SCEPTERS],
     attributes: ["20% Chance To Cast Level 16 Tornado On Striking", "16% Chance To Cast Level 21 Frozen Orb On Attack", "20% Bonus To Attack Rating", "Adds 160-250 Magic Damage", "Adds 60-180 Fire Damage", "+5-10 To All Attributes (varies)", "+10 To Dexterity", "38% Damage Taken Goes To Mana", "75% Extra Gold From Monsters", "Level 15 Iron Maiden (40 Charges)", "Requirements -20%"],
     level: 53,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.SPIRIT,
@@ -589,7 +589,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.SWORDS, ItemTypes.SHIELDS],
     attributes: ["BOTH:", "+2 To All Skills", "+25-35% Faster Cast Rate (varies)", "+55% Faster Hit Recovery", "+250 Defense Vs. Missile", "+22 To Vitality", "+89-112 To Mana (varies)", "+3-8 Magic Absorb (varies)", "SHIELDS:", "Cold Resist +35%", "Lightning Resist +35%", "Poison Resist +35%", "Attacker Takes Damage of 14", "SWORDS:", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage (3 Sec, Normal)", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit"],
     level: 25,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.VOICE_OF_REASON,
@@ -597,7 +597,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.SWORDS, ItemTypes.MACES],
     attributes: ["15% Chance To Cast Level 13 Frozen Orb On Striking", "18% Chance To Cast Level 20 Ice Blast On Striking", "+50 To Attack Rating", "+220-350% Damage To Demons (varies)", "+355-375% Damage To Undead (varies)", "+50 To Attack Rating Against Undead", "Adds 100-220 Cold Damage", "-24% To Enemy Cold Resistance", "+10 To Dexterity", "Cannot Be Frozen", "75% Extra Gold From Monsters", "+1 To Light Radius"],
     level: 43,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.WRATH,
@@ -605,7 +605,7 @@ const runeWords: IRuneWord[] = [
     itemTypes: [ItemTypes.MISSILE_WEAPONS],
     attributes: ["30% Chance To Cast Level 1 Decrepify On Striking", "5% Chance To Cast Level 10 Life Tap On Striking", "+375% Damage To Demons", "+100 To Attack Rating Against Demons", "+250-300% Damage To Undead (varies)", "Adds 85-120 Magic Damage", "Adds 41-240 Lightning Damage", "20% Chance of Crushing Blow", "Prevent Monster Heal", "+10 To Energy", "Cannot Be Frozen"],
     level: 63,
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: RuneWords.BONE,
@@ -662,7 +662,16 @@ const runeWords: IRuneWord[] = [
     attributes: ["5% Chance To Cast Level 15 Fade When Struck", "25% Chance To Cast level 15 Venom On Striking", "+2 To Assassin Skills", "+45% Increased Attack Speed", "+20% Faster Hit Recovery", "Cold Resist +30%", "50% Extra Gold From Monsters"],
     level: 43,
     ladderOnly: false
-  }
+  },
+  // 2.4 runewords
+  {
+    name: RuneWords.FLICKERING_FLAME,
+    runes: [NEF, PUL, VEX],
+    itemTypes: [ItemTypes.HELMS],
+    attributes: ["Level 8 Resist Fire Aura When Equipped", "+3 to Fire Skills", "-13% to Enemy Fire Resistance", "+30% Enhanced Defense", "+30 Defense vs. Missile", "+88 to Mana", "+5% to Maximum Fire Resist", "Half Freeze Duration", "Poison Length Reduced to 50%"],
+    level: 64,
+    ladderOnly: true
+  },
 ];
 
 const runewordsByItemType: Map<ItemTypes, Set<RuneWords>> = new Map();
