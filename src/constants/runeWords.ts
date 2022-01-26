@@ -672,6 +672,54 @@ const runeWords: IRuneWord[] = [
     level: 64,
     ladderOnly: true
   },
+  {
+    name: RuneWords.MIST,
+    runes: [CHAM, SHAEL, GUL, THUL, ITH],
+    itemTypes: [ItemTypes.MISSILE_WEAPONS],
+    attributes: ["Level 8-12 Concentration Aura When Equipped", "+3 to All Skills", "+20% Increased Attack Speed", "+100% Piercing Attack", "+325-375% Enhanced Damage", "+9 to Maximum Damage", "20% Bonus Attack Rating", "Adds 3-14 Cold Damage", "Freezes Target +3", "+24 to Vitality", "All Resistances +40"],
+    level: 64,
+    ladderOnly: true
+  },
+  {
+    name: RuneWords.PATTERN,
+    runes: [TAL, ORT, THUL],
+    itemTypes: [ItemTypes.ASSASSIN_KATARS],
+    attributes: ["+30% Faster Block Rate", "+40-80% Enhanced Damage", "10% Bonus Attack Rating", "Adds 12-32 Fire Damage", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage", "+75 Poison Damage over 5 Seconds", "+6 to Strength", "+6 to Dexterity", "All Resistances +15"],
+    level: 23,
+    ladderOnly: true
+  },
+  {
+    name: RuneWords.OBSESSION,
+    runes: [ZOD, IST, LEM, LUM, IO, NEF],
+    itemTypes: [ItemTypes.STAVES],
+    attributes: ["Indestructible", "24% Chance to Cast Level 10 Weaken When Struck", "+4 to All Skills", "+65% Faster Cast Rate", "+60% Faster Hit Recovery", "Knockback", "+10 to Vitality", "+10 to Energy", "Increase Maximum Life 15-25%", "Regenerate Mana 15-30%", "All Resistances +60-70", "75% Extra Gold From Monsters", "30% Better Chance of Getting Magic Items"],
+    level: 69,
+    ladderOnly: true
+  },
+  {
+    name: RuneWords.PLAGUE,
+    runes: [CHAM, SHAEL, UM],
+    itemTypes: [ItemTypes.SWORDS],
+    attributes: ["20% Chance to Cast Level 12 Lower Resist When Struck", "25% Chance to Cast Level 15 Poison Nova on Striking", "Level 13-17 Cleansing Aura When Equipped", "+1-2 to All Skills", "+20% Increased Attack Speed", "+220-320% Enhanced Damage", "-23% to Enemy Poison Resistance", "0.3% (0-29.7) Deadly Strike (Based on Character Level)", "+25% Chance of Open Wounds", "Freezes Target +3"],
+    level: 67,
+    ladderOnly: true
+  },
+  {
+    name: RuneWords.UNBENDING_WILL,
+    runes: [FAL, IO, ITH, ELD, EL, HEL],
+    itemTypes: [ItemTypes.SWORDS],
+    attributes: ["18% Chance to Cast Level 18 Taunt on Striking", "+3 to Combat Skills (Barbarian Only)", "+20-30% Increased Attack Speed", "+300-350% Enhanced Damage", "+9 to Maximum Damage", "+50 to Attack Rating", "+75% Damage to Undead", "8-10% Life Stolen Per Hit", "Prevent Monster Heal", "+10 to Strength", "+10 to Vitality", "Damage Reduced By 8", "+1 to Light Radius", "Requirements -20%"],
+    level: 63,
+    ladderOnly: true
+  },
+  {
+    name: RuneWords.WISDOM,
+    runes: [PUL, ITH, ELD],
+    itemTypes: [ItemTypes.HELMS],
+    attributes: ["+33% Piercing Attack", "+20% Bonus to Attack Rating", "5% Mana Stolen Per Hit", "+30% Enhanced Defense", "+10 to Energy", "15% Slower Stamina Drain", "Cannot Be Frozen", "+5 Mana After Each Kill", "15% Damage Taken Goes to Mana"],
+    level: 45,
+    ladderOnly: true
+  },
 ];
 
 const runewordsByItemType: Map<ItemTypes, Set<RuneWords>> = new Map();
