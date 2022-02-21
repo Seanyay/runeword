@@ -2,7 +2,8 @@
   "name": "runeword",
   "version": "1.1.2",
   "author": "Andy Parisi",
-  "private": false,
+  "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/andyparisi/runeword"
